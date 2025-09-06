@@ -36,7 +36,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="py-20 bg-gradient-to-br from-gray-900 to-gray-800 text-white relative overflow-hidden"
+      className="py-20 bg-gray-950 text-white relative overflow-hidden"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">

@@ -87,7 +87,7 @@ export default function PersonalProjects() {
     };
 
     return (
-        <section id="personal-projects" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+        <section id="personal-projects" className="py-20 bg-gray-950 dark:to-gray-800 relative overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 z-0">
                 {/* Floating particles */}

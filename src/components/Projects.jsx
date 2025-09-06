@@ -209,7 +209,7 @@ export default function Projects() {
     const gridClass = getGridClass(currentProjects.length);
 
     return (
-        <section id="projects" className="py-20 bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+        <section id="projects" className="py-20 bg-gray-950 text-white relative overflow-hidden">
             {/* Animated Background Elements */}
             <div className="absolute inset-0 z-0">
                 {/* Floating particles */}

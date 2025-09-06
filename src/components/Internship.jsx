@@ -73,7 +73,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="relative py-20 bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden"
+      className="relative py-20 bg-gray-950 text-white overflow-hidden"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">

@@ -70,7 +70,7 @@ export default function Certifications() {
   ];
 
   return (
-    <section id="certifications" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
+    <section id="certifications" className="py-20 bg-gray-950 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">
         {/* Floating particles */}

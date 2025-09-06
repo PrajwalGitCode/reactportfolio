@@ -37,7 +37,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="py-20 bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white relative overflow-hidden"
+      className="py-20 bg-gray-950 text-white relative overflow-hidden"
     >
       {/* Animated Background Elements */}
       <div className="absolute inset-0 z-0">
