@@ -1,6 +1,7 @@
 // src/components/Projects.jsx
 import React from "react";
 import { motion } from "framer-motion";
+import "../styling/Internship.css";
 
 export default function Projects() {
   const projects = [
@@ -237,35 +238,6 @@ export default function Projects() {
           </a>
         </motion.div>
       </div>
-
-      {/* Add custom animations to Tailwind */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-15px) rotate(5deg);
-          }
-          100% {
-            transform: translateY(0) rotate(0deg);
-          }
-        }
-        @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 0.1;
-          }
-          50% {
-            opacity: 0.15;
-          }
-        }
-        .animate-float {
-          animation: float 12s ease-in-out infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
     </section>
   );
 }

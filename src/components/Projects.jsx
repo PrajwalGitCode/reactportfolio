@@ -1,5 +1,6 @@
 // src/components/Projects.jsx
 import React, { useState } from "react";
+import "../styling/Projects.css";
 import { FaExternalLinkAlt, FaGithub, FaBuilding, FaChevronDown, FaStar, FaCodeBranch } from "react-icons/fa";
 import { SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiFirebase, SiPython, SiDjango, SiDocker } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
@@ -221,21 +222,21 @@ export default function Projects() {
                             height: Math.floor(Math.random() * 4) + 2 + 'px',
                             top: Math.floor(Math.random() * 100) + '%',
                             left: Math.floor(Math.random() * 100) + '%',
-                            backgroundColor: i % 3 === 0 
-                                ? 'rgba(99, 102, 241, 0.5)' 
-                                : i % 3 === 1 
-                                ? 'rgba(139, 92, 246, 0.5)' 
-                                : 'rgba(236, 72, 153, 0.5)',
+                            backgroundColor: i % 3 === 0
+                                ? 'rgba(99, 102, 241, 0.5)'
+                                : i % 3 === 1
+                                    ? 'rgba(139, 92, 246, 0.5)'
+                                    : 'rgba(236, 72, 153, 0.5)',
                             animationDuration: `${Math.floor(Math.random() * 15) + 10}s`,
                             animationDelay: `${Math.floor(Math.random() * 5)}s`,
                         }}
                     ></div>
                 ))}
-                
+
                 {/* Gradient blobs */}
                 <div className="absolute top-1/4 -left-20 w-96 h-96 bg-indigo-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-10 animate-pulse-slow"></div>
-                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-10 animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-                
+                <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-10 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+
                 {/* Subtle grid pattern */}
                 <div className="absolute inset-0 opacity-5" style={{
                     backgroundImage: 'linear-gradient(to right, #718096 1px, transparent 1px), linear-gradient(to bottom, #718096 1px, transparent 1px)',
@@ -245,7 +246,7 @@ export default function Projects() {
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
@@ -270,7 +271,7 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Company Selection */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -285,8 +286,8 @@ export default function Projects() {
                                 setExpandedProject(null);
                             }}
                             className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center ${activeCompany === key
-                                    ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-2xl transform scale-105"
-                                    : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
+                                ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-2xl transform scale-105"
+                                : "bg-gray-800 text-gray-300 hover:bg-gray-700 hover:text-white"
                                 }`}
                         >
                             <span className="text-xl mr-2">{company.logo}</span>
@@ -299,7 +300,7 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Projects Counter */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
@@ -312,7 +313,7 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Projects Grid - Dynamic columns based on project count */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
@@ -338,7 +339,7 @@ export default function Projects() {
                                     <h3 className="text-xl font-bold text-white">{project.title}</h3>
                                     <p className="text-purple-300 text-sm">{project.duration}</p>
                                 </div>
-                                
+
                                 {/* GitHub Stats */}
                                 <div className="absolute top-4 right-4 flex items-center space-x-3 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1">
                                     <span className="flex items-center text-sm text-gray-200">
@@ -389,7 +390,7 @@ export default function Projects() {
                                     </button>
                                     <AnimatePresence>
                                         {expandedProject === project.id && (
-                                            <motion.ul 
+                                            <motion.ul
                                                 initial={{ opacity: 0, height: 0 }}
                                                 animate={{ opacity: 1, height: "auto" }}
                                                 exit={{ opacity: 0, height: 0 }}
@@ -433,7 +434,7 @@ export default function Projects() {
                 </motion.div>
 
                 {/* Company Summary */}
-                <motion.div 
+                <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
@@ -459,35 +460,6 @@ export default function Projects() {
                     </div>
                 </motion.div>
             </div>
-
-            {/* Add custom animations to Tailwind */}
-            <style jsx>{`
-                @keyframes float {
-                    0% {
-                        transform: translateY(0) rotate(0deg);
-                    }
-                    50% {
-                        transform: translateY(-15px) rotate(5deg);
-                    }
-                    100% {
-                        transform: translateY(0) rotate(0deg);
-                    }
-                }
-                @keyframes pulse-slow {
-                    0%, 100% {
-                        opacity: 0.1;
-                    }
-                    50% {
-                        opacity: 0.2;
-                    }
-                }
-                .animate-float {
-                    animation: float 12s ease-in-out infinite;
-                }
-                .animate-pulse-slow {
-                    animation: pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                }
-            `}</style>
         </section>
     );
 }

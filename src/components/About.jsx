@@ -1,5 +1,6 @@
 // src/components/About.jsx
 import React from "react";
+import "../styling/About.css";
 import {
   SiReact,
   SiNodedotjs,
@@ -49,22 +50,22 @@ export default function About() {
               height: Math.floor(Math.random() * 4) + 2 + 'px',
               top: Math.floor(Math.random() * 100) + '%',
               left: Math.floor(Math.random() * 100) + '%',
-              backgroundColor: i % 3 === 0 
-                ? 'rgba(99, 102, 241, 0.5)' 
-                : i % 3 === 1 
-                  ? 'rgba(139, 92, 246, 0.5)' 
+              backgroundColor: i % 3 === 0
+                ? 'rgba(99, 102, 241, 0.5)'
+                : i % 3 === 1
+                  ? 'rgba(139, 92, 246, 0.5)'
                   : 'rgba(236, 72, 153, 0.5)',
               animationDuration: `${Math.floor(Math.random() * 15) + 10}s`,
               animationDelay: `${Math.floor(Math.random() * 5)}s`,
             }}
           ></div>
         ))}
-        
+
         {/* Gradient blobs */}
         <div className="absolute top-1/4 -left-20 w-72 h-72 bg-purple-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-indigo-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-20 animate-pulse-slow" style={{animationDelay: '4s'}}></div>
-        
+        <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-indigo-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-30 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-pink-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-20 animate-pulse-slow" style={{ animationDelay: '4s' }}></div>
+
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-10" style={{
           backgroundImage: 'linear-gradient(to right, #718096 1px, transparent 1px), linear-gradient(to bottom, #718096 1px, transparent 1px)',
@@ -171,35 +172,6 @@ export default function About() {
           </a>
         </div>
       </div>
-
-      {/* Add custom animations to Tailwind */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(10deg);
-          }
-          100% {
-            transform: translateY(0) rotate(0deg);
-          }
-        }
-        @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 0.3;
-          }
-          50% {
-            opacity: 0.5;
-          }
-        }
-        .animate-float {
-          animation: float 10s ease-in-out infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
     </section>
   );
 }

@@ -1,5 +1,6 @@
 // src/components/Education.jsx
 import React from "react";
+import "../styling/Education.css";
 import { FaGraduationCap, FaBook, FaSchool } from "react-icons/fa";
 
 export default function Education() {
@@ -141,35 +142,6 @@ export default function Education() {
           </div>
         </div>
       </div>
-
-      {/* Add custom animations to Tailwind */}
-      <style jsx>{`
-        @keyframes float {
-          0% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(10deg);
-          }
-          100% {
-            transform: translateY(0) rotate(0deg);
-          }
-        }
-        @keyframes pulse-slow {
-          0%, 100% {
-            opacity: 0.2;
-          }
-          50% {
-            opacity: 0.3;
-          }
-        }
-        .animate-float {
-          animation: float 10s ease-in-out infinite;
-        }
-        .animate-pulse-slow {
-          animation: pulse-slow 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
     </section>
   );
 }
