@@ -1,6 +1,7 @@
 // src/components/Education.jsx
 import React from "react";
-import "../styling/Education.css";
+import "../App.css"
+import AnimatedBackground from "./AnimatedBackground";
 import { FaGraduationCap, FaBook, FaSchool } from "react-icons/fa";
 
 export default function Education() {
@@ -39,39 +40,7 @@ export default function Education() {
       id="education"
       className="py-20 bg-gray-950 text-white relative overflow-hidden"
     >
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0">
-        {/* Floating particles */}
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full animate-float"
-            style={{
-              width: Math.floor(Math.random() * 4) + 2 + 'px',
-              height: Math.floor(Math.random() * 4) + 2 + 'px',
-              top: Math.floor(Math.random() * 100) + '%',
-              left: Math.floor(Math.random() * 100) + '%',
-              backgroundColor: i % 3 === 0
-                ? 'rgba(99, 102, 241, 0.5)'
-                : i % 3 === 1
-                  ? 'rgba(139, 92, 246, 0.5)'
-                  : 'rgba(236, 72, 153, 0.5)',
-              animationDuration: `${Math.floor(Math.random() * 15) + 10}s`,
-              animationDelay: `${Math.floor(Math.random() * 5)}s`,
-            }}
-          ></div>
-        ))}
-
-        {/* Gradient blobs */}
-        <div className="absolute top-1/4 -left-20 w-72 h-72 bg-purple-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-20 animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 -right-20 w-72 h-72 bg-indigo-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-20 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-10" style={{
-          backgroundImage: 'linear-gradient(to right, #718096 1px, transparent 1px), linear-gradient(to bottom, #718096 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-        }}></div>
-      </div>
+      <AnimatedBackground particleCount={170} />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
         {/* Header */}

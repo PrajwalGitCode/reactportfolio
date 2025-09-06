@@ -1,6 +1,7 @@
 // src/components/Certifications.jsx
 import React from "react";
-import "../styling/Certifications.css";
+import "../App.css" 
+import AnimatedBackground from "./AnimatedBackground";
 import { FaExternalLinkAlt, FaDownload, FaCalendarAlt, FaAward } from "react-icons/fa";
 import { SiCoursera, SiUdemy, SiFreecodecamp, SiGoogle } from "react-icons/si";
 import { motion } from "framer-motion";
@@ -72,38 +73,7 @@ export default function Certifications() {
   return (
     <section id="certifications" className="py-20 bg-gray-950 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-0">
-        {/* Floating particles */}
-        {[...Array(12)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full animate-float"
-            style={{
-              width: Math.floor(Math.random() * 4) + 2 + 'px',
-              height: Math.floor(Math.random() * 4) + 2 + 'px',
-              top: Math.floor(Math.random() * 100) + '%',
-              left: Math.floor(Math.random() * 100) + '%',
-              backgroundColor: i % 3 === 0
-                ? 'rgba(59, 130, 246, 0.4)'
-                : i % 3 === 1
-                  ? 'rgba(139, 92, 246, 0.4)'
-                  : 'rgba(16, 185, 129, 0.4)',
-              animationDuration: `${Math.floor(Math.random() * 15) + 10}s`,
-              animationDelay: `${Math.floor(Math.random() * 5)}s`,
-            }}
-          ></div>
-        ))}
-
-        {/* Gradient blobs */}
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-pulse-slow"></div>
-        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-10 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
-
-        {/* Subtle grid pattern */}
-        <div className="absolute inset-0 opacity-5" style={{
-          backgroundImage: 'linear-gradient(to right, #888 1px, transparent 1px), linear-gradient(to bottom, #888 1px, transparent 1px)',
-          backgroundSize: '50px 50px',
-        }}></div>
-      </div>
+      <AnimatedBackground particleCount={170} />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         {/* Section Header */}

@@ -5,21 +5,28 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [scrolled, setScrolled] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      // Update scroll progress
+      const scrollTop = window.scrollY;
+      const docHeight = document.body.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / docHeight) * 100;
+      setScrollProgress(progress);
+
       // Update active section based on scroll position
       const sections = document.querySelectorAll("section");
       sections.forEach((section) => {
         const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.offsetHeight;
-        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        if (scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight) {
           setActiveSection(section.getAttribute("id"));
         }
       });
 
       // Add a subtle shadow when scrolled
-      setScrolled(window.scrollY > 10);
+      setScrolled(scrollTop > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -34,19 +41,16 @@ export default function Navbar() {
     }
   };
 
-  const navItems = ["home", "about", "projects", "contact"];
+  const navItems = ["home", "about", "projects", "education", "certifications", "contact"];
 
   return (
     <>
-      <nav className={`fixed w-full z-50 py-4 transition-all duration-300 ${scrolled ? "shadow-lg" : ""}`}>
-        {/* Glassmorphism background */}
-        <div className="absolute inset-0 bg-gray-900/80 backdrop-blur-md border-b border-gray-800/50"></div>
-
+      <nav className={`fixed w-full z-50 py-4 transition-all duration-300 ${scrolled ? "bg-gray-900/90 backdrop-blur-md shadow-xl" : "bg-transparent"}`}>
         {/* Scroll Progress Bar */}
         <div className="h-1 w-full bg-gray-800 absolute bottom-0 left-0">
           <div
-            className="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300 ease-out"
-            style={{ width: `${(window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100}%` }}
+            className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-300 ease-out"
+            style={{ width: `${scrollProgress}%` }}
           ></div>
         </div>
 
@@ -94,7 +98,7 @@ export default function Navbar() {
               <a
                 href="/resume.pdf"
                 download
-                className="px-4 py-2 border border-indigo-500 text-indigo-300 rounded-md font-medium hover:bg-indigo-500/10 hover:text-white transition-all duration-300"
+                className="px-4 py-2 border border-indigo-500 text-indigo-300 rounded-md font-medium hover:bg-indigo-500/10 hover:text-white transition-all duration-300 hover:scale-105"
               >
                 Resume
               </a>
@@ -107,10 +111,10 @@ export default function Navbar() {
                 className="text-gray-300 hover:text-white focus:outline-none p-2 transition-colors duration-300"
                 aria-label="Toggle menu"
               >
-                <div className="w-6 h-6 flex flex-col justify-center items-center">
-                  <span className={`bg-white h-0.5 w-6 rounded-full transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-0.5' : '-translate-y-1'}`}></span>
+                <div className="w-6 h-6 flex flex-col justify-center items-center relative">
+                  <span className={`bg-white h-0.5 w-6 rounded-full transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1' : '-translate-y-1'}`}></span>
                   <span className={`bg-white h-0.5 w-6 rounded-full transition-all duration-300 ${isOpen ? 'opacity-0' : 'opacity-100 my-1'}`}></span>
-                  <span className={`bg-white h-0.5 w-6 rounded-full transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-0.5' : 'translate-y-1'}`}></span>
+                  <span className={`bg-white h-0.5 w-6 rounded-full transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : 'translate-y-1'}`}></span>
                 </div>
               </button>
             </div>
@@ -149,6 +153,14 @@ export default function Navbar() {
 
       {/* Add space for fixed navbar - consistent height */}
       <div className="h-20"></div>
+
+      {/* Mobile menu backdrop */}
+      {isOpen && (
+        <div 
+          className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
+          onClick={() => setIsOpen(false)}
+        ></div>
+      )}
     </>
   );
 }
