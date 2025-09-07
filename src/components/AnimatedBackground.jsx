@@ -1,234 +1,220 @@
-import React from "react";
+// src/components/DarkFluidBackground.jsx
+import React, { useEffect, useRef } from "react";
 
-export default function AnimatedBackground({ particleCount = 200 }) {
-  // Generate completely random particles with varied properties
-  const generateParticles = () => {
-    return [...Array(particleCount)].map((_, i) => {
-      const size = Math.floor(Math.random() * 8) + 1;
-      const shapes = ['rounded-full', 'rounded-sm', 'rounded', ''];
-      const shape = shapes[Math.floor(Math.random() * shapes.length)];
+export default function DarkFluidBackground() {
+  const canvasRef = useRef(null);
 
-      const colors = [
-        "rgba(99, 102, 241, 0.6)",    // Indigo
-        "rgba(139, 92, 246, 0.6)",    // Purple
-        "rgba(236, 72, 153, 0.6)",    // Pink
-        "rgba(16, 185, 129, 0.6)",    // Emerald
-        "rgba(245, 158, 11, 0.6)",    // Amber
-        "rgba(59, 130, 246, 0.6)",    // Blue
-        "rgba(249, 115, 22, 0.6)"     // Orange
-      ];
-      const color = colors[Math.floor(Math.random() * colors.length)];
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let animationFrameId;
 
-      const duration = Math.floor(Math.random() * 25) + 10;
-      const delay = Math.floor(Math.random() * 10);
+    // === Resize ===
+    const resizeCanvas = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      canvas.width = window.innerWidth * dpr;
+      canvas.height = window.innerHeight * dpr;
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
+      ctx.scale(dpr, dpr);
+    };
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
-      // Random movement patterns
-      const movementTypes = ['float', 'drift', 'pulse', 'orbit', 'bounce'];
-      const movement = movementTypes[Math.floor(Math.random() * movementTypes.length)];
-
-      return (
-        <div
-          key={i}
-          className={`absolute ${shape} animate-${movement}`}
-          style={{
-            width: `${size}px`,
-            height: `${size}px`,
-            top: `${Math.floor(Math.random() * 100)}%`,
-            left: `${Math.floor(Math.random() * 100)}%`,
-            backgroundColor: color,
-            animationDuration: `${duration}s`,
-            animationDelay: `${delay}s`,
-            opacity: Math.random() * 0.7 + 0.3,
-            transform: `rotate(${Math.floor(Math.random() * 360)}deg)`,
-            filter: `blur(${Math.random() > 0.7 ? Math.random() * 2 : 0}px)`
-          }}
-        ></div>
-      );
-    });
-  };
-
-  // Generate random gradient blobs
-  const generateBlobs = () => {
-    const blobCount = 5;
-    const blobs = [];
-
-    for (let i = 0; i < blobCount; i++) {
-      const size = Math.floor(Math.random() * 300) + 100;
-      const colors = [
-        "rgba(99, 102, 241, 0.15)",    // Indigo
-        "rgba(139, 92, 246, 0.15)",    // Purple
-        "rgba(236, 72, 153, 0.15)",    // Pink
-        "rgba(16, 185, 129, 0.15)",    // Emerald
-        "rgba(59, 130, 246, 0.15)"     // Blue
-      ];
-      const color = colors[Math.floor(Math.random() * colors.length)];
-
-      blobs.push(
-        <div
-          key={`blob-${i}`}
-          className="absolute rounded-full mix-blend-soft-light filter blur-3xl animate-pulse-random"
-          style={{
-            width: `${size}px`,
-            height: `${size}px`,
-            top: `${Math.floor(Math.random() * 100)}%`,
-            left: `${Math.floor(Math.random() * 100)}%`,
-            backgroundColor: color,
-            animationDuration: `${Math.floor(Math.random() * 15) + 10}s`,
-            animationDelay: `${Math.floor(Math.random() * 8)}s`,
-            opacity: Math.random() * 0.2 + 0.1,
-            transform: `scale(${Math.random() * 2 + 1})`
-          }}
-        ></div>
-      );
+    // === Gradient Blob Class ===
+    class GradientBlob {
+      constructor() {
+        this.reset();
+      }
+      reset() {
+        const palettes = [
+          [
+            { r: 67, g: 56, b: 202 },
+            { r: 109, g: 40, b: 217 },
+            { r: 126, g: 34, b: 206 },
+          ],
+          [
+            { r: 30, g: 58, b: 138 },
+            { r: 37, g: 99, b: 235 },
+            { r: 59, g: 130, b: 246 },
+          ],
+          [
+            { r: 15, g: 118, b: 110 },
+            { r: 13, g: 148, b: 136 },
+            { r: 20, g: 184, b: 166 },
+          ],
+          [
+            { r: 136, g: 19, b: 55 },
+            { r: 190, g: 18, b: 60 },
+            { r: 225, g: 29, b: 72 },
+          ],
+        ];
+        const palette = palettes[Math.floor(Math.random() * palettes.length)];
+        this.colors = [...palette];
+        this.x = Math.random() * window.innerWidth;
+        this.y = Math.random() * window.innerHeight;
+        this.size = Math.random() * 300 + 250;
+        this.targetSize = this.size;
+        this.speedX = (Math.random() - 0.5) * 0.9;
+        this.speedY = (Math.random() - 0.5) * 0.9;
+        this.pulsePhase = Math.random() * Math.PI * 2;
+        this.pulseSpeed = Math.random() * 0.012 + 0.008;
+        this.pulseAmount = Math.random() * 0.4 + 0.2;
+        this.rotation = Math.random() * Math.PI * 2;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.002;
+        this.wobblePhase = Math.random() * Math.PI * 2;
+        this.wobbleSpeed = Math.random() * 0.025 + 0.015;
+        this.wobbleAmount = Math.random() * 0.12 + 0.08;
+        this.opacity = Math.random() * 0.12 + 0.07;
+        this.blendMode = ["screen", "overlay", "soft-light"][
+          Math.floor(Math.random() * 3)
+        ];
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        this.pulsePhase += this.pulseSpeed;
+        const pulse = Math.sin(this.pulsePhase);
+        this.size = this.targetSize * (1 + pulse * this.pulseAmount);
+        this.rotation += this.rotationSpeed;
+        this.wobblePhase += this.wobbleSpeed;
+      }
+      draw() {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.rotation);
+        const gradient = ctx.createRadialGradient(0, 0, 0, 0, 0, this.size);
+        const wobble = Math.sin(this.wobblePhase) * this.wobbleAmount;
+        gradient.addColorStop(
+          0,
+          `rgba(${this.colors[0].r},${this.colors[0].g},${this.colors[0].b},${this.opacity})`
+        );
+        gradient.addColorStop(
+          0.4 + wobble * 0.2,
+          `rgba(${this.colors[1].r},${this.colors[1].g},${this.colors[1].b},${this.opacity * 0.9})`
+        );
+        gradient.addColorStop(
+          0.7,
+          `rgba(${this.colors[2].r},${this.colors[2].g},${this.colors[2].b},${this.opacity * 0.5})`
+        );
+        gradient.addColorStop(
+          1,
+          `rgba(${this.colors[2].r},${this.colors[2].g},${this.colors[2].b},0)`
+        );
+        ctx.globalCompositeOperation = this.blendMode;
+        ctx.beginPath();
+        ctx.arc(0, 0, this.size, 0, Math.PI * 2);
+        ctx.filter = "blur(6px) brightness(1.05)";
+        ctx.fillStyle = gradient;
+        ctx.fill();
+        ctx.filter = "none";
+        ctx.restore();
+      }
     }
 
-    return blobs;
-  };
-
-  // Generate dynamic grid patterns
-  const generateGrids = () => {
-    const gridCount = 2;
-    const grids = [];
-
-    for (let i = 0; i < gridCount; i++) {
-      const sizes = [30, 40, 50, 60];
-      const size = sizes[Math.floor(Math.random() * sizes.length)];
-      const opacity = Math.random() * 0.08 + 0.02;
-
-      grids.push(
-        <div
-          key={`grid-${i}`}
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(to right, rgba(31,41,55,0.3) 1px, transparent 1px), 
-                 linear-gradient(to bottom, rgba(31,41,55,0.3) 1px, transparent 1px)`,
-
-            backgroundSize: `${size}px ${size}px`,
-            opacity: opacity,
-            transform: `rotate(${Math.floor(Math.random() * 10)}deg)`,
-            animation: `gridMove ${Math.floor(Math.random() * 30) + 20}s linear infinite`
-          }}
-        ></div>
-      );
+    // === Particles ===
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.radius = Math.random() * 2 + 1;
+        this.vx = (Math.random() - 0.5) * 0.8;
+        this.vy = (Math.random() - 0.5) * 0.8;
+      }
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(180,220,255,0.9)";
+        ctx.shadowBlur = 12;
+        ctx.shadowColor = "#6ff";
+        ctx.fill();
+        ctx.shadowBlur = 0;
+      }
     }
 
-    return grids;
-  };
+    // === Dense Neural Connections ===
+    function drawConnections(particles) {
+      for (let i = 0; i < particles.length; i++) {
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          // Strong close glow
+          if (dist < 150) {
+            const alpha = 1 - dist / 150;
+            const gradient = ctx.createLinearGradient(
+              particles[i].x,
+              particles[i].y,
+              particles[j].x,
+              particles[j].y
+            );
+            gradient.addColorStop(0, `rgba(0,255,255,${alpha})`);
+            gradient.addColorStop(1, `rgba(255,0,255,${alpha})`);
+            ctx.strokeStyle = gradient;
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+
+          // Fainter long-range mesh
+          else if (dist < 300) {
+            const alpha = 1 - dist / 300;
+            ctx.strokeStyle = `rgba(120,180,255,${alpha * 0.25})`;
+            ctx.lineWidth = 0.6;
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.stroke();
+          }
+        }
+      }
+    }
+
+    // === Setup ===
+    const blobs = Array.from({ length: 5 }, () => new GradientBlob());
+    const particles = Array.from({ length: 120 }, () => new Particle());
+
+    // === Animation Loop ===
+    const animate = () => {
+      ctx.fillStyle = "rgba(8,12,24,0.15)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.globalCompositeOperation = "source-over";
+
+      blobs.forEach((b) => {
+        b.update();
+        b.draw();
+      });
+      particles.forEach((p) => {
+        p.update();
+        p.draw();
+      });
+      drawConnections(particles);
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+    animate();
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      window.removeEventListener("resize", resizeCanvas);
+    };
+  }, []);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden">
-      {/* Random particles */}
-      {generateParticles()}
-
-      {/* Random gradient blobs */}
-      {generateBlobs()}
-
-      {/* Dynamic grid patterns */}
-      {generateGrids()}
-
-      {/* Subtle gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-gray-900/20"></div>
-
-      {/* Custom animations */}
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translate(0, 0) rotate(0deg);
-          }
-          33% {
-            transform: translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px) rotate(${Math.random() * 360}deg);
-          }
-          66% {
-            transform: translate(${Math.random() * 40 - 20}px, ${Math.random() * 40 - 20}px) rotate(${Math.random() * 360}deg);
-          }
-        }
-        
-        @keyframes drift {
-          0% {
-            transform: translate(0, 0);
-          }
-          100% {
-            transform: translate(${Math.random() * 200 - 100}px, ${Math.random() * 200 - 100}px);
-          }
-        }
-        
-        @keyframes pulse {
-          0%, 100% {
-            transform: scale(1);
-            opacity: 0.5;
-          }
-          50% {
-            transform: scale(${Math.random() * 0.5 + 1.2});
-            opacity: 0.8;
-          }
-        }
-        
-        @keyframes orbit {
-          0% {
-            transform: rotate(0deg) translateX(${Math.random() * 50 + 20}px) rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg) translateX(${Math.random() * 50 + 20}px) rotate(-360deg);
-          }
-        }
-        
-        @keyframes bounce {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(${Math.random() * 30 - 15}px);
-          }
-        }
-        
-        @keyframes pulse-random {
-          0%, 100% {
-            transform: scale(1) rotate(0deg);
-            opacity: 0.1;
-          }
-          33% {
-            transform: scale(${Math.random() * 0.5 + 1.1}) rotate(${Math.random() * 20 - 10}deg);
-            opacity: 0.2;
-          }
-          66% {
-            transform: scale(${Math.random() * 0.5 + 0.9}) rotate(${Math.random() * 20 - 10}deg);
-            opacity: 0.15;
-          }
-        }
-        
-        @keyframes gridMove {
-          0% {
-            background-position: 0 0;
-          }
-          100% {
-            background-position: ${Math.floor(Math.random() * 100)}px ${Math.floor(Math.random() * 100)}px;
-          }
-        }
-        
-        .animate-float {
-          animation: float ease-in-out infinite;
-        }
-        
-        .animate-drift {
-          animation: drift linear infinite;
-        }
-        
-        .animate-pulse {
-          animation: pulse ease-in-out infinite;
-        }
-        
-        .animate-orbit {
-          animation: orbit linear infinite;
-        }
-        
-        .animate-bounce {
-          animation: bounce ease-in-out infinite;
-        }
-        
-        .animate-pulse-random {
-          animation: pulse-random ease-in-out infinite;
-        }
-      `}</style>
+    <div className="fixed inset-0 z-0 overflow-hidden bg-gray-950">
+      <canvas ref={canvasRef} className="absolute inset-0 w-full h-full" />
+      {/* Overlay gradients */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900/40 via-gray-950/30 to-gray-900/40 mix-blend-overlay"></div>
+      <div className="absolute inset-0 bg-gradient-to-t from-gray-950/60 via-transparent to-gray-950/40"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(8,12,24,0.6)_75%)]"></div>
     </div>
   );
 }

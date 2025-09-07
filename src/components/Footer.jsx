@@ -2,39 +2,15 @@
 import React from "react";
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaHeart, FaCode } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
-
+import "../App.css"
+import AnimatedBackground from "./AnimatedBackground"
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className="bg-gray-900 text-white border-t border-gray-700/50 relative overflow-hidden">
             {/* Background Elements */}
-            <div className="absolute inset-0 z-0">
-                {/* Floating particles */}
-                {[...Array(75)].map((_, i) => (
-                    <div
-                        key={i}
-                        className="absolute rounded-full animate-float"
-                        style={{
-                            width: Math.floor(Math.random() * 4) + 2 + 'px',
-                            height: Math.floor(Math.random() * 4) + 2 + 'px',
-                            top: Math.floor(Math.random() * 100) + '%',
-                            left: Math.floor(Math.random() * 100) + '%',
-                            backgroundColor: i % 3 === 0 
-                                ? 'rgba(99, 102, 241, 0.5)' 
-                                : i % 3 === 1 
-                                ? 'rgba(139, 92, 246, 0.5)' 
-                                : 'rgba(236, 72, 153, 0.5)',
-                            animationDuration: `${Math.floor(Math.random() * 15) + 10}s`,
-                            animationDelay: `${Math.floor(Math.random() * 5)}s`,
-                        }}
-                    ></div>
-                ))}
-                
-                {/* Gradient blobs */}
-                <div className="absolute bottom-0 left-0 w-96 h-96 bg-indigo-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-10 animate-pulse-slow"></div>
-                <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-600 rounded-full mix-blend-soft-light filter blur-3xl opacity-10 animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-            </div>
+           <AnimatedBackground particleCount={170} />
 
             {/* Main Footer Content */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
@@ -157,49 +133,6 @@ export default function Footer() {
                     <FaEnvelope className="w-6 h-6 group-hover:animate-bounce" />
                 </a>
             </div>
-
-            {/* Add custom animations to Tailwind */}
-            <style jsx>{`
-                @keyframes float {
-                    0% {
-                        transform: translateY(0) rotate(0deg);
-                    }
-                    50% {
-                        transform: translateY(-15px) rotate(5deg);
-                    }
-                    100% {
-                        transform: translateY(0) rotate(0deg);
-                    }
-                }
-                @keyframes pulse-fast {
-                    0%, 100% {
-                        opacity: 0.1;
-                    }
-                    50% {
-                        opacity: 0.2;
-                    }
-                }
-                @keyframes bounce-fast {
-                    0%, 20%, 50%, 80%, 100% {
-                        transform: translateY(0) scale(1);
-                    }
-                    40% {
-                        transform: translateY(-10px) scale(1.05);
-                    }
-                    60% {
-                        transform: translateY(-5px) scale(1.02);
-                    }
-                }
-                .animate-float {
-                    animation: float 2s ease-in-out infinite;
-                }
-                .animate-pulse-fast {
-                    animation: pulse-fast 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-                }
-                .animate-bounce-fast {
-                    animation: bounce-fast 1s infinite;
-                }
-            `}</style>
         </footer>
     );
 }
