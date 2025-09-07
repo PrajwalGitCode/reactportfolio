@@ -73,7 +73,7 @@ export default function Projects() {
 
   return (
     <section
-      id="projects"
+      id="internships"
       className="relative py-20 bg-gray-950 text-white overflow-hidden"
     >
       <AnimatedBackground particleCount={170} />

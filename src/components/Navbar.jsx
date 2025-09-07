@@ -41,7 +41,7 @@ export default function Navbar() {
     }
   };
 
-  const navItems = ["home", "about", "projects", "education", "certifications", "contact"];
+  const navItems = ["home", "about", "education", "internships","projects", "certifications"];
 
   return (
     <>

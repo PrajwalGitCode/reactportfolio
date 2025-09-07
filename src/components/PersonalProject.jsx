@@ -89,8 +89,7 @@ export default function PersonalProjects() {
 
     return (
         <section id="personal-projects" className="py-20 bg-gray-950 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
-            {/* Animated Background Elements */}
-           <AnimatedBackground particleCount={170} />
+            <AnimatedBackground particleCount={170} />
 
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 {/* Section Header */}
@@ -108,49 +107,35 @@ export default function PersonalProjects() {
                     </p>
                 </div>
 
-                {/* Uniform Hexagonal Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                {/* Hex + Rectangle Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {personalProjects.map((project) => (
                         <div
                             key={project.id}
-                            className="relative transform hover:scale-105 transition-transform duration-500 cursor-pointer group"
+                            className="hex-card"
                             onClick={() => setSelectedProject(selectedProject?.id === project.id ? null : project)}
                         >
-                            <div className="hexagon bg-white dark:bg-gray-800 shadow-xl border-2 border-purple-200 dark:border-purple-800 group-hover:border-purple-400 dark:group-hover:border-purple-500 transition-all duration-300">
-                                <div className="hex-content">
-                                    <img
-                                        src={project.image}
-                                        alt={project.title}
-                                        className="hex-image"
-                                    />
-                                    <div className="hex-overlay">
-                                        <h3 className="text-white font-bold text-lg text-center mb-2">{project.title}</h3>
-                                        <div className="flex justify-center space-x-2 mb-3">
-                                            {project.techStack.slice(0, 3).map((tech, index) => (
-                                                <span key={index} className="text-purple-200">
-                                                    {getTechIcon(tech)}
-                                                </span>
-                                            ))}
-                                            {project.techStack.length > 3 && (
-                                                <span className="text-purple-200 text-sm">+{project.techStack.length - 3}</span>
-                                            )}
-                                        </div>
-                                        <div className="flex justify-center space-x-4 text-purple-200 text-sm">
-                                            <span className="flex items-center">
-                                                <FaStar className="mr-1" /> {project.stars}
-                                            </span>
-                                            <span className="flex items-center">
-                                                <FaCodeBranch className="mr-1" /> {project.forks}
-                                            </span>
-                                        </div>
-                                    </div>
+                            <div className="hexagon">
+                                <img src={project.image} alt={project.title} className="hex-image" />
+                            </div>
+                            <div className="hex-info">
+                                <h3>{project.title}</h3>
+                                <p className="text-sm">{project.description}</p>
+                                <div className="hex-tech">
+                                    {project.techStack.map((tech, idx) => (
+                                        <span key={idx}>{getTechIcon(tech)}</span>
+                                    ))}
+                                </div>
+                                <div className="flex gap-4 mt-2 text-sm">
+                                    <span className="flex items-center"><FaStar className="mr-1" /> {project.stars}</span>
+                                    <span className="flex items-center"><FaCodeBranch className="mr-1" /> {project.forks}</span>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Project Detail Modal */}
+                {/* Project Modal */}
                 {selectedProject && (
                     <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-gray-800 rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
@@ -172,9 +157,7 @@ export default function PersonalProjects() {
 
                                 <div className="p-6">
                                     <div className="flex flex-wrap items-center justify-between mb-4">
-                                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                                            {selectedProject.title}
-                                        </h3>
+                                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{selectedProject.title}</h3>
                                         <div className="flex items-center space-x-3 mt-2">
                                             <a
                                                 href={selectedProject.liveLink}
@@ -182,8 +165,7 @@ export default function PersonalProjects() {
                                                 rel="noopener noreferrer"
                                                 className="flex items-center px-3 py-1 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors text-sm"
                                             >
-                                                <FaExternalLinkAlt className="mr-1" />
-                                                Live
+                                                <FaExternalLinkAlt className="mr-1" /> Live
                                             </a>
                                             <a
                                                 href={selectedProject.githubLink}
@@ -191,8 +173,7 @@ export default function PersonalProjects() {
                                                 rel="noopener noreferrer"
                                                 className="flex items-center px-3 py-1 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors text-sm"
                                             >
-                                                <FaGithub className="mr-1" />
-                                                Code
+                                                <FaGithub className="mr-1" /> Code
                                             </a>
                                         </div>
                                     </div>
@@ -201,7 +182,6 @@ export default function PersonalProjects() {
                                         {selectedProject.description}
                                     </p>
 
-                                    {/* GitHub Stats */}
                                     <div className="flex space-x-4 mb-4 text-sm">
                                         <div className="flex items-center text-gray-600 dark:text-gray-300">
                                             <FaStar className="text-yellow-500 mr-1" />
@@ -217,17 +197,12 @@ export default function PersonalProjects() {
                                         </div>
                                     </div>
 
-                                    {/* Tech Stack */}
                                     <div className="mb-4">
                                         <h4 className="text-md font-semibold text-gray-900 dark:text-white mb-2">Tech Stack</h4>
                                         <div className="flex flex-wrap gap-2">
                                             {selectedProject.techStack.map((tech, index) => (
-                                                <span
-                                                    key={index}
-                                                    className="flex items-center px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-700 dark:text-gray-300 text-sm"
-                                                >
-                                                    {getTechIcon(tech)}
-                                                    <span className="ml-1">{tech}</span>
+                                                <span key={index} className="flex items-center px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-700 dark:text-gray-300 text-sm">
+                                                    {getTechIcon(tech)} <span className="ml-1">{tech}</span>
                                                 </span>
                                             ))}
                                         </div>
@@ -241,9 +216,7 @@ export default function PersonalProjects() {
                 {/* Call to Action */}
                 <div className="text-center mt-12">
                     <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-purple-200 dark:border-purple-800 shadow-lg">
-                        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-                            Want to see more?
-                        </h3>
+                        <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">Want to see more?</h3>
                         <p className="text-gray-600 dark:text-gray-300 mb-4">
                             Check out my GitHub for more projects and contributions!
                         </p>
@@ -253,8 +226,7 @@ export default function PersonalProjects() {
                             rel="noopener noreferrer"
                             className="inline-flex items-center px-5 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
                         >
-                            <FaGithub className="mr-2" />
-                            Visit GitHub
+                            <FaGithub className="mr-2" /> Visit GitHub
                         </a>
                     </div>
                 </div>
@@ -263,21 +235,15 @@ export default function PersonalProjects() {
     );
 }
 
-// Additional icon components
+// Additional icons
 const SiTensorflow = ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" width="24" height="24">
-        <path fill="currentColor" d="M1.292 5.856L11.54 0v24l-4.095-2.378V11.19L1.292 5.856zm21.43 5.856l-4.096 2.378v4.756L12.46 24V0l10.26 5.856v5.856z" />
-    </svg>
+    <svg className={className} viewBox="0 0 24 24"><path fill="currentColor" d="M1.292 5.856L11.54 0v24l-4.095-2.378V11.19L1.292 5.856zm21.43 5.856l-4.096 2.378v4.756L12.46 24V0l10.26 5.856v5.856z" /></svg>
 );
 
 const SiSocketio = ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" width="24" height="24">
-        <path fill="currentColor" d="M11.936.014a12.17 12.17 0 00-2.975.378C4.281 1.555.567 5.794.091 10.602c-.59 4.549 1.708 9.286 5.644 11.635 3.861 2.418 9.093 2.32 12.874-.223 3.397-2.206 5.512-6.227 5.386-10.285-.058-4.016-2.31-7.917-5.759-9.98A12.525 12.525 0 0011.936.014zm-.063 1.697c1.945.006 3.857.53 5.49 1.546 3.116 1.999 4.937 5.66 4.5 9.414-.428 3.582-2.585 6.782-5.764 8.13-3.265 1.38-7.323.785-9.984-1.507-2.537-2.167-3.605-5.654-2.903-8.93.723-3.35 3.384-6.052 6.66-6.653z" />
-    </svg>
+    <svg className={className} viewBox="0 0 24 24"><path fill="currentColor" d="M11.936.014a12.17 12.17 0 00-2.975.378C4.281 1.555.567 5.794.091 10.602c-.59 4.549 1.708 9.286 5.644 11.635 3.861 2.418 9.093 2.32 12.874-.223 3.397-2.206 5.512-6.227 5.386-10.285-.058-4.016-2.31-7.917-5.759-9.98A12.525 12.525 0 0011.936.014zm-.063 1.697c1.945.006 3.857.53 5.49 1.546 3.116 1.999 4.937 5.66 4.5 9.414-.428 3.582-2.585 6.782-5.764 8.13-3.265 1.38-7.323.785-9.984-1.507-2.537-2.167-3.605-5.654-2.903-8.93.723-3.35 3.384-6.052 6.66-6.653z" /></svg>
 );
 
 const SiVuedotjs = ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" width="24" height="24">
-        <path fill="currentColor" d="M24 1.61H14.06L12 5.16 9.94 1.61H0L12 22.39 24 1.61zm-12 5.37L16.12 1.61H7.88L12 6.98z" />
-    </svg>
+    <svg className={className} viewBox="0 0 24 24"><path fill="currentColor" d="M24 1.61H14.06L12 5.16 9.94 1.61H0L12 22.39 24 1.61zm-12 5.37L16.12 1.61H7.88L12 6.98z" /></svg>
 );
