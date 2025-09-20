@@ -9,28 +9,28 @@ export default function Education() {
     {
       id: 1,
       year: "2022",
-      title: "Bachelor of Engineering in Computer Science",
-      institution: "Your College Name",
+      title: "Bachelor of Engineering - Computer Science",
+      institution: "NMAM Institute of Technology, Nitte",
       description:
-        "Graduated with a degree in Computer Science Engineering. Focused on software development, algorithms, and system design.",
+        "Karkala, Karnataka",
       icon: <FaGraduationCap className="text-indigo-400 text-xl" />,
     },
     {
       id: 2,
       year: "2018",
-      title: "Higher Secondary Education (12th Grade)",
-      institution: "Your College Name",
+      title: "12th Grade",
+      institution: "Mahesh PU College",
       description:
-        "Completed higher secondary education with focus on science and mathematics.",
+        "Mangalore, Karnataka",
       icon: <FaBook className="text-purple-400 text-xl" />,
     },
     {
       id: 3,
       year: "2016",
-      title: "Secondary Education (10th Grade)",
-      institution: "Your School Name",
+      title: "10th Grade",
+      institution: "Canara CBSE",
       description:
-        "Completed secondary education with excellent academic performance.",
+        "Mangalore, Karnataka",
       icon: <FaSchool className="text-pink-400 text-xl" />,
     },
   ];
@@ -52,9 +52,6 @@ export default function Education() {
             </span>
           </h2>
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-4"></div>
-          <p className="text-gray-400 mt-3">
-            A step-by-step look into my academic background.
-          </p>
         </div>
 
         {/* Timeline - Restored original alignment */}
@@ -84,31 +81,6 @@ export default function Education() {
               </div>
             </div>
           ))}
-        </div>
-
-        {/* Extra section - Restored original alignment with enhancements */}
-        <div className="mt-16 text-center">
-          <h3 className="text-2xl font-semibold text-gray-200 mb-4">
-            Lifelong <span className="text-indigo-400">Learning</span>
-          </h3>
-          <p className="text-gray-400 max-w-2xl mx-auto mb-6">
-            Beyond formal education, I enhance my skills with online courses,
-            certifications, workshops, and personal projects.
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <span className="px-4 py-2 bg-indigo-500/20 text-indigo-300 rounded-full text-sm hover:bg-indigo-500/30 transition-all duration-300 cursor-default">
-              Online Courses
-            </span>
-            <span className="px-4 py-2 bg-purple-500/20 text-purple-300 rounded-full text-sm hover:bg-purple-500/30 transition-all duration-300 cursor-default">
-              Certifications
-            </span>
-            <span className="px-4 py-2 bg-blue-500/20 text-blue-300 rounded-full text-sm hover:bg-blue-500/30 transition-all duration-300 cursor-default">
-              Workshops
-            </span>
-            <span className="px-4 py-2 bg-green-500/20 text-green-300 rounded-full text-sm hover:bg-green-500/30 transition-all duration-300 cursor-default">
-              Personal Projects
-            </span>
-          </div>
         </div>
       </div>
     </section>

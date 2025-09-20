@@ -82,8 +82,8 @@ export default function About() {
             {/* Experience Stats */}
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700/30">
-                <div className="text-3xl font-bold text-indigo-400 mb-2">2+</div>
-                <div className="text-gray-300">Years Experience</div>
+                <div className="text-3xl font-bold text-indigo-400 mb-2">7+</div>
+                <div className="text-gray-300">Internships Done</div>
               </div>
               <div className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700/30">
                 <div className="text-3xl font-bold text-purple-400 mb-2">15+</div>
@@ -112,32 +112,6 @@ export default function About() {
               ))}
             </div>
           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <a
-            href="#contact"
-            className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg font-medium hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-indigo-500/25 relative overflow-hidden group"
-          >
-            <span className="relative z-10">Let's Work Together</span>
-            <svg
-              className="w-5 h-5 ml-2 relative z-10"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-            {/* Button animation background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-indigo-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </a>
         </div>
       </div>
     </section>

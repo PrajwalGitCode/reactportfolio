@@ -1,14 +1,13 @@
-// src/components/Projects.jsx
+// src/components/internships.jsx
 import React from "react";
-import { motion } from "framer-motion";
 import "../App.css"
 import AnimatedBackground from "./AnimatedBackground";
 
-export default function Projects() {
-  const projects = [
+export default function Intrnships() {
+  const internships = [
     {
       internship: "MicroDegree · Python Full-Stack Intern",
-      duration: "Jul 2024 – Oct 2024",
+      duration: "July 2024 – October 2024",
       items: [
         {
           title: "Tech Store Website",
@@ -26,7 +25,7 @@ export default function Projects() {
     },
     {
       internship: "Debug Deployment Technologies · Web Developer Intern",
-      duration: "Feb 2024 – Mar 2024",
+      duration: "February 2024 – March 2024",
       items: [
         {
           title: "To-Do List App",
@@ -45,6 +44,87 @@ export default function Projects() {
           description:
             "Pixel-perfect responsive clone of a modern landing page.",
           skills: ["JavaScript", "Responsive Design"],
+        },
+      ],
+    },
+    {
+      internship: "UnifyCX · Full Time · Graduate Engineer Trainee",
+      duration: "November 2023 – January 2024",
+      items: [
+        {
+          title: "Technical Support Engineer (Level 1)",
+          description:
+            "Provided level-one technical support for web hosting issues, efficiently handling multiple customer chats simultaneously and ensuring timely issue resolution.",
+          skills: ["Customer Support", "Web Hosting", "Problem-Solving", "Communication", "CRM Tools"],
+        },
+        {
+          title: "Troubleshooting & Escalation",
+          description:
+            "Troubleshot and escalated technical problems, maintaining accurate and detailed records using CRM tools for streamlined workflows.",
+          skills: ["Troubleshooting", "Escalation Management", "CRM Tools", "Documentation"],
+        },
+        {
+          title: "Customer Experience",
+          description:
+            "Demonstrated strong problem-solving and communication skills, consistently delivering a positive and professional customer experience in a fast-paced environment.",
+          skills: ["Customer Service", "Communication", "Problem-Solving", "Multitasking"],
+        },
+
+      ],
+    },
+    {
+      internship: "Nayepankh Foundation · Graphic Design Intern",
+      duration: "September 2023 – December 2023",
+      items: [
+        {
+          title: "Graphic Design Intern - Visual Assets",
+          description:
+            "Created custom graphics, templates, and visual assets to support branding and marketing campaigns across digital platforms.",
+          skills: ["Graphic Design", "Canva", "Figma", "Creativity"],
+        },
+        {
+          title: "Graphic Design Intern - Collaboration",
+          description:
+            "Worked with teams to design social media creatives, presentations, and promotional materials, ensuring consistency in branding and design quality.",
+          skills: ["Collaboration", "Branding", "Figma", "Canva", "Communication"],
+        },
+
+
+      ],
+    },
+    {
+      internship: "GaoTEK · Internship",
+      duration: "September 2023 – December 2023",
+      items: [
+        {
+          title: "WordPress - Catalog Management",
+          description:
+            "Executed product uploads and catalog management using the WordPress framework, ensuring accuracy and consistency in online listings.",
+          skills: ["WordPress", "Catalog Management", "Attention to Detail", "Content Management"],
+        },
+        {
+          title: "WordPress - Website Development & Support",
+          description:
+            "Designed and developed WordPress websites with custom layouts and user-friendly interfaces. Troubleshot and resolved technical issues to improve site functionality and performance.",
+          skills: ["WordPress", "Custom Layouts", "UI/UX", "Troubleshooting", "Performance Optimization"],
+        },
+      ],
+    },
+    {
+      internship: "Suven Consultants & Technology Pvt. Ltd. · UI/UX Internship",
+      duration: "June 2021 – July 2021",
+      items: [
+        {
+          title: "Intern — Suven Consultants & Technology Pvt. Ltd. (Web Development)",
+          description:
+            "Developed multiple responsive website clones including EarBot, E-Learn, E-Food, Tutor Point, Alumni Website, and Oppex using HTML, CSS, Bootstrap, and JavaScript.",
+          skills: ["HTML", "CSS", "Bootstrap", "JavaScript", "Web Development"],
+        },
+        {
+          title: "Intern — Suven Consultants & Technology Pvt. Ltd. (Responsive Design)",
+          description:
+            "Focused on creating modern layouts with pixel-perfect design, ensuring seamless functionality and user experience across all devices.",
+          skills: ["Responsive Design", "UI/UX", "Cross-Browser Compatibility", "Attention to Detail"],
         },
       ],
     },
@@ -80,38 +160,24 @@ export default function Projects() {
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-20"
-        >
+        <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold">
-            Internship{" "}
+            Work{" "}
             <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-indigo-400 bg-clip-text text-transparent">
-              Projects
+              Experience
             </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto mt-4"></div>
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
-            Case studies from my internships — hands-on learning turned into
-            real projects.
-          </p>
-        </motion.div>
+        </div>
 
         {/* Vertical Timeline Line */}
         <div className="absolute left-1/2 top-40 bottom-10 w-1 bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500 rounded-full transform -translate-x-1/2 z-0"></div>
 
         {/* Timeline Items */}
         <div className="space-y-20 relative">
-          {projects.map((internship, i) => (
-            <motion.div
+          {internships.map((internship, i) => (
+            <div
               key={i}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.2 }}
-              viewport={{ once: true }}
               className={`relative flex items-start ${i % 2 === 0 ? "justify-start" : "justify-end"
                 }`}
             >
@@ -136,12 +202,8 @@ export default function Projects() {
                 {/* Projects Inside */}
                 <div className="space-y-6">
                   {internship.items.map((project, idx) => (
-                    <motion.div
+                    <div
                       key={idx}
-                      initial={{ opacity: 0, scale: 0.95 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.4, delay: idx * 0.1 + i * 0.1 }}
-                      viewport={{ once: true }}
                       className="p-5 bg-gradient-to-br from-gray-800/70 to-gray-900/70 border border-gray-700 rounded-xl hover:border-pink-400/30 hover:shadow-md hover:shadow-pink-500/10 transition-all duration-300 group/item"
                     >
                       <h4 className="text-lg font-medium text-white group-hover/item:text-pink-200 transition-colors">
@@ -155,56 +217,21 @@ export default function Projects() {
                           }`}
                       >
                         {project.skills.map((skill, sidx) => (
-                          <motion.span
+                          <span
                             key={sidx}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{ duration: 0.3, delay: sidx * 0.1 + idx * 0.1 }}
-                            viewport={{ once: true }}
                             className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-pink-500/20 to-purple-500/20 text-pink-300 border border-pink-500/30 hover:bg-pink-500/30 hover:text-white transition-all duration-300 cursor-default"
                           >
                             {skill}
-                          </motion.span>
+                          </span>
                         ))}
                       </div>
-                    </motion.div>
+                    </div>
                   ))}
                 </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-          className="text-center mt-20"
-        >
-          <p className="text-gray-400 mb-6">Want to see more of my work?</p>
-          <a
-            href="#contact"
-            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-600 to-purple-600 text-white rounded-lg font-medium hover:from-pink-500 hover:to-purple-500 transition-all duration-300 shadow-lg hover:shadow-pink-500/25 group/button"
-          >
-            <span>Get In Touch</span>
-            <svg
-              className="w-5 h-5 ml-2 group-hover/button:translate-x-1 transition-transform"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M14 5l7 7m0 0l-7 7m7-7H3"
-              />
-            </svg>
-          </a>
-        </motion.div>
       </div>
     </section>
   );

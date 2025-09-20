@@ -9,14 +9,14 @@ import Projects from "./components/Projects";
 import PersonalProjects from "./components/PersonalProject";
 import Footer from "./components/Footer";
 import Certifications from "./components/Certifications";
-import DarkFluidBackground from "./components/AnimatedBackground";
+import CatsEyeNebulaBackground from "./components/AnimatedBackground";
 
 function App() {
   return (
     <div className="relative bg-gray-900 text-white min-h-screen font-sans">
       {/* Unified Animated Background for entire app */}
-      <DarkFluidBackground />
-      
+      <CatsEyeNebulaBackground />
+
       {/* Content container with higher z-index */}
       <div className="relative z-10">
         {/* Navbar */}

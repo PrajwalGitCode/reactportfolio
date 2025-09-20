@@ -41,11 +41,11 @@ export default function Navbar() {
     }
   };
 
-  const navItems = ["home", "about", "education", "internships","projects", "certifications"];
+  const navItems = ["home", "about", "education", "internships", "projects", "certifications"];
 
   return (
     <>
-      <nav className={`fixed w-full z-50 py-4 transition-all duration-300 ${scrolled ? "bg-gray-900/90 backdrop-blur-md shadow-xl" : "bg-transparent"}`}>
+      <nav className="fixed w-full z-50 py-4 bg-gray-900/90 backdrop-blur-md shadow-xl transition-all duration-300">
         {/* Scroll Progress Bar */}
         <div className="h-1 w-full bg-gray-800 absolute bottom-0 left-0">
           <div
@@ -156,7 +156,7 @@ export default function Navbar() {
 
       {/* Mobile menu backdrop */}
       {isOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 backdrop-blur-sm z-40 md:hidden"
           onClick={() => setIsOpen(false)}
         ></div>
