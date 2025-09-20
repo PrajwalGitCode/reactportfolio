@@ -2,9 +2,27 @@
 import React, { useState } from "react";
 import "../App.css"
 import AnimatedBackground from "./AnimatedBackground";
+import inteImg from "../images/inte.png";
+import alumni from "../images/alumni.png";
+import appleclone from "../images/appleclone.png";
+import earbot from "../images/earbot.png";
+import elearn from "../images/elearn.png";
+import feature from "../images/feature.png";
+import feature22 from "../images/feature22.png";
+import food from "../images/food.png";
+import mach from "../images/mach.png";
+import main1 from "../images/main.png";
+import microbank from "../images/microbank.png";
+import microfullstore from "../images/microfullstore.png";
+import portfolio from "../images/portfolio.png";
+import resume from "../images/resume.png";
+import sheet from "../images/sheet.png";
+import techweb from "../images/techweb.png";
+import tender from "../images/tender.png";
+import tutor from "../images/tutor.png";
 
-import { FaExternalLinkAlt, FaGithub, FaBuilding, FaChevronDown, FaStar, FaCodeBranch } from "react-icons/fa";
-import { SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiFirebase, SiPython, SiDjango, SiDocker } from "react-icons/si";
+import { FaExternalLinkAlt, FaGithub, FaBuilding, FaChevronDown } from "react-icons/fa";
+import { SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiFirebase, SiPython, SiDjango, SiHtml5, SiCss3, SiBootstrap, SiJavascript } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
@@ -37,7 +55,6 @@ export default function Projects() {
                     liveLink: "https://techcorp-dashboard.com",
                     githubLink: "https://github.com/techcorp/dashboard",
                     techStack: ["React", "Firebase", "Chart.js", "Tailwind CSS"],
-                    duration: "Aug 2022 - Dec 2022",
                     achievements: ["Improved team productivity by 25%", "Automated reporting system"],
                     stars: 87,
                     forks: 21
@@ -97,14 +114,14 @@ export default function Projects() {
             ]
         },
         startupInc: {
-            name: "Startup Inc",
+            name: "dfwfwfwfwef",
             logo: "🚀",
             projects: [
                 {
                     id: 7,
-                    title: "Task Management App",
-                    description: "Created a collaborative task management application with real-time updates and team collaboration features for remote teams.",
-                    image: "/api/placeholder/400/250",
+                    title: "EarBot Clone",
+                    description: "Created a collnd team collaboration features for remote teams.",
+                    image: earbot,
                     liveLink: "https://startuptasks.com",
                     githubLink: "https://github.com/startupinc/tasks",
                     techStack: ["React", "Firebase", "Tailwind CSS", "Context API"],
@@ -129,53 +146,110 @@ export default function Projects() {
             ]
         },
         dataLabs: {
-            name: "Data Labs",
+            name: "Suven Consultants & Technology Pvt. Ltd.",
             logo: "📊",
             projects: [
                 {
                     id: 9,
-                    title: "Social Media Analytics",
-                    description: "Built a comprehensive social media analytics platform with data visualization and sentiment analysis for marketing agencies.",
-                    image: "/api/placeholder/400/250",
-                    liveLink: "https://datalabs-analytics.com",
+                    title: "Tutor Point Clone",
+                    description: "Developed a responsive multi-page clone of TutorialsPoint with courses, ebooks, and coding examples using Bootstrap.",
+                    image: tutor,
+                    liveLink: tutor,
                     githubLink: "https://github.com/datalabs/analytics",
-                    techStack: ["Python", "Django", "PostgreSQL", "D3.js", "Docker"],
-                    duration: "Jun 2021 - Feb 2022",
-                    achievements: ["Processed 1M+ data points daily", "95% accuracy in sentiment analysis", "Reduced processing time by 60%"],
-                    stars: 89,
-                    forks: 24
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Built course and ebook pages with cards, lists, and forms",
+                        "Added footer navigation and search module in the header",
+                        "Improved skills in structuring large content websites"],
+                },
+                {
+                    id: 10,
+                    title: "E-Learn Website",
+                    description: "Built a single-page responsive e-learning website with sections for courses, search, and footer layout.",
+                    image: elearn,
+                    liveLink: tutor,
+                    githubLink: "https://github.com/datalabs/analytics",
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Designed sections using Bootstrap grid and card layouts",
+                        "Practiced clean one-page responsive design",
+                        "Enhanced skills in layout division and semantic structuring"],
+                },
+                {
+                    id: 11,
+                    title: "EarBot Lifecycle Website",
+                    description: "Created a responsive support portal for music system products with image animations, carousel, and gallery.",
+                    image: earbot,
+                    liveLink: tutor,
+                    githubLink: "https://github.com/datalabs/analytics",
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Used Bootstrap components like Navbar, Jumbotron, and Grid System",
+                        "Added responsive image galleries and animated sections",
+                        "Strengthened interactive page design abilities"],
+                },
+                {
+                    id: 12,
+                    title: "Opexx Tender Portal",
+                    description: "Developed a responsive clone of Oppex.com for browsing tenders, with search and pricing sections.",
+                    image: tender,
+                    liveLink: tutor,
+                    githubLink: "https://github.com/datalabs/analytics",
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Implemented navbar tabs for live tenders and winners",
+                        "Added toggle functionality for showing/hiding form content",
+                        "Designed pricing section with card hover effects"],
+                },
+                {
+                    id: 13,
+                    title: "E-Food Website",
+                    description: "Built a responsive restaurant and food discovery website similar to Zomato/UberEats.",
+                    image: food,
+                    liveLink: tutor,
+                    githubLink: "https://github.com/datalabs/analytics",
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Added location-based dropdown for food search",
+                        "Used Bootstrap carousel for homepage image animations",
+                        "Designed category-wise food listing with responsive cards"],
+                },
+                {
+                    id: 14,
+                    title: "Alumni Management Portal",
+                    description: "Created a responsive alumni portal with blogs, portfolios, events, and contact integration.",
+                    image: alumni,
+                    liveLink: tutor,
+                    githubLink: "https://github.com/datalabs/analytics",
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Embedded social media and Google Maps API",
+                        "Implemented blog/news layout with ads and tags",
+                        "Designed responsive grid sections for forum, feedback, and register"],
                 }
             ]
         },
         climateTech: {
-            name: "ClimateTech",
+            name: "InternshipStudio",
             logo: "🌍",
             projects: [
                 {
-                    id: 10,
-                    title: "Weather Dashboard",
-                    description: "Developed a real-time weather forecasting application with interactive maps and location-based services.",
-                    image: "/api/placeholder/400/250",
-                    liveLink: "https://climatetech-weather.com",
-                    githubLink: "https://github.com/climatetech/weather",
-                    techStack: ["JavaScript", "API Integration", "Chart.js", "CSS3"],
-                    duration: "Sep 2020 - May 2021",
-                    achievements: ["Served 50K+ monthly users", "98% forecast accuracy", "Mobile app integration"],
-                    stars: 112,
-                    forks: 31
+                    id: 16,
+                    title: "E Commerce Website",
+                    description: "Developed a responsive e-commerce website using HTML, CSS, and JS, featuring product listings, and a seamless experience across all devices.",
+                    image: inteImg,
+                    liveLink: "https://stellar-conkies-6ff379.netlify.app/",
+                    githubLink: "https://github.com/PrajwalGitCode/ecommerce-website/tree/main/techwebsite",
+                    techStack: ["JavaScript", "HTML", "CSS"],
+                    achievements: ["Completed my first internship project in web development",
+                        "Built a responsive layout without frameworks, using only HTML, CSS, and JS",
+                        "Improved problem-solving skills and understanding of real-world project workflow"],
                 },
                 {
-                    id: 11,
-                    title: "Carbon Footprint Tracker",
-                    description: "Created a carbon footprint calculation and tracking system for environmental consciousness.",
-                    image: "/api/placeholder/400/250",
-                    liveLink: "https://climatetech-carbon.com",
-                    githubLink: "https://github.com/climatetech/carbon",
-                    techStack: ["React Native", "Node.js", "MongoDB", "Google Maps API"],
-                    duration: "Jan 2020 - Aug 2020",
-                    achievements: ["10K+ downloads", "Featured in App Store", "Partnership with environmental organizations"],
-                    stars: 97,
-                    forks: 27
+                    id: 17,
+                    title: "CSS Cheat Sheet",
+                    description: "Created a responsive CSS cheat sheet with all the essential features, styling techniques for quick reference.",
+                    image: sheet,
+                    liveLink: "https://euphonious-sprinkles-54f92a.netlify.app/",
+                    githubLink: "https://github.com/PrajwalGitCode/csscheatsheet",
+                    techStack: ["HTML", "CSS"],
+                    achievements: ["Built a comprehensive CSS reference guide as a self-learning project",
+                        "Practiced responsive design techniques without using frameworks",
+                        "Enhanced understanding of core CSS concepts and real-world use cases"],
                 }
             ]
         }
@@ -191,18 +265,17 @@ export default function Projects() {
             "Firebase": <SiFirebase className="text-yellow-500" />,
             "Python": <SiPython className="text-blue-500" />,
             "Django": <SiDjango className="text-green-700" />,
-            "Docker": <SiDocker className="text-blue-400" />,
             "MySQL": <SiMysql className="text-blue-600" />,
-            "Redis": <SiRedis className="text-red-500" />,
-            "Vue.js": <SiVuedotjs className="text-green-400" />,
-            "Laravel": <SiLaravel className="text-red-600" />
+            "HTML": <SiHtml5 className="text-orange-500" />,
+            "CSS": <SiCss3 className="text-blue-500" />,
+            "Bootstrap": <SiBootstrap className="text-purple-600" />,
+            "JavaScript": <SiJavascript className="text-yellow-400" />,
         };
         return iconMap[tech] || <div className="w-5 h-5 bg-gray-400 rounded-full"></div>;
     };
 
     // Calculate grid columns based on project count
     const getGridClass = (count) => {
-        if (count >= 6) return "grid-cols-1 md:grid-cols-2 lg:grid-cols-3";
         if (count >= 4) return "grid-cols-1 md:grid-cols-2";
         return "grid-cols-1";
     };
@@ -298,27 +371,16 @@ export default function Projects() {
                             transition={{ duration: 0.5 }}
                             className="bg-gray-900/80 backdrop-blur-xl border border-gray-700/30 rounded-3xl overflow-hidden hover:border-indigo-500/50 transition-all duration-300 group hover:shadow-2xl hover:shadow-indigo-500/10"
                         >
-                            {/* Project Image */}
-                            <div className="relative overflow-hidden h-48">
+                            <div className="relative overflow-hidden flex items-center justify-center bg-black">
                                 <img
                                     src={project.image}
                                     alt={project.title}
-                                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                    className="w-full object-contain"
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 to-transparent opacity-70"></div>
                                 <div className="absolute bottom-4 left-4">
                                     <h3 className="text-xl font-bold text-white">{project.title}</h3>
                                     <p className="text-purple-300 text-sm">{project.duration}</p>
-                                </div>
-
-                                {/* GitHub Stats */}
-                                <div className="absolute top-4 right-4 flex items-center space-x-3 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1">
-                                    <span className="flex items-center text-sm text-gray-200">
-                                        <FaStar className="text-yellow-400 mr-1" /> {project.stars}
-                                    </span>
-                                    <span className="flex items-center text-sm text-gray-200">
-                                        <FaCodeBranch className="text-gray-400 mr-1" /> {project.forks}
-                                    </span>
                                 </div>
                             </div>
 
@@ -448,20 +510,3 @@ const SiMysql = ({ className }) => (
     </svg>
 );
 
-const SiRedis = ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" width="24" height="24">
-        <path fill="currentColor" d="M12 0c-1.2 0-2.4.2-3.6.6-1.2.4-2.4.8-3.4 1.4-1 .6-1.8 1.4-2.6 2.2-.8.8-1.4 1.6-2 2.6-.6 1-1 2.2-1.4 3.4C.2 9.6 0 10.8 0 12s.2 2.4.6 3.6c.4 1.2.8 2.4 1.4 3.4.6 1 1.4 1.8 2.2 2.6.8.8 1.6 1.4 2.6 2 1 .6 2.2 1 3.4 1.4 1.2.4 2.4.6 3.6.6s2.4-.2 3.6-.6c1.2-.4 2.4-.8 3.4-1.4 1-.6 1.8-1.4 2.6-2.2.8-.8 1.4-1.6 2-2.6.6-1 1-2.2 1.4-3.4.4-1.2.6-2.4.6-3.6s-.2-2.4-.6-3.6c-.4-1.2-.8-2.4-1.4-3.4-.6-1-1.4-1.8-2.2-2.6-.8-.8-1.6-1.4-2.6-2-1-.6-2.2-1-3.4-1.4C14.4.2 13.2 0 12 0zm0 2.4c1.2 0 2.4.2 3.6.6 1.2.4 2.4.8 3.4 1.4 1 .6 1.8 1.4 2.6 2.2.8.8 1.4 1.6 2 2.6.6 1 1 2.2 1.4 3.4.4 1.2.6 2.4.6 3.6s-.2 2.4-.6 3.6c-.4 1.2-.8 2.4-1.4 3.4-.6 1-1.4 1.8-2.2 2.6-.8.8-1.6 1.4-2.6 2-1 .6-2.2 1-3.4 1.4-1.2.4-2.4.6-3.6.6s-2.4-.2-3.6-.6c-1.2-.4-2.4-.8-3.4-1.4-1-.6-1.8-1.4-2.6-2.2-.8-.8-1.4-1.6-2-2.6-.6-1-1-2.2-1.4-3.4-.4-1.2-.6-2.4-.6-3.6s.2-2.4.6-3.6c.4-1.2.8-2.4 1.4-3.4.6-1 1.4-1.8 2.2-2.2.8-.8 1.6-1.4 2.6-2 1-.6 2.2-1 3.4-1.4 1.2-.4 2.4-.6 3.6-.6z" />
-    </svg>
-);
-
-const SiVuedotjs = ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" width="24" height="24">
-        <path fill="currentColor" d="M24 1.61H14.06L12 5.16 9.94 1.61H0L12 22.39 24 1.61zm-12 5.37L16.12 1.61H7.88L12 6.98z" />
-    </svg>
-);
-
-const SiLaravel = ({ className }) => (
-    <svg className={className} viewBox="0 0 24 24" width="24" height="24">
-        <path fill="currentColor" d="M24 12c0 6.627-5.373 12-12 12S0 18.627 0 12 5.373 0 12 0s12 5.373 12 12zM12 2.92A9.08 9.08 0 1021.08 12 9.08 9.08 0 0012 2.92zm0 16.24A7.16 7.16 0 1119.16 12 7.16 7.16 0 0112 19.16zM12 5.84A6.16 6.16 0 1018.16 12 6.16 6.16 0 0012 5.84zm0 10.32A4.16 4.16 0 1116.16 12 4.16 4.16 0 0112 16.16z" />
-    </svg>
-);

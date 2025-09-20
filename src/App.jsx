@@ -14,15 +14,9 @@ import CatsEyeNebulaBackground from "./components/AnimatedBackground";
 function App() {
   return (
     <div className="relative bg-gray-900 text-white min-h-screen font-sans">
-      {/* Unified Animated Background for entire app */}
       <CatsEyeNebulaBackground />
-
-      {/* Content container with higher z-index */}
       <div className="relative z-10">
-        {/* Navbar */}
         <Navbar />
-
-        {/* Page Sections */}
         <Hero />
         <About />
         <Education />
