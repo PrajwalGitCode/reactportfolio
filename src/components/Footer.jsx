@@ -9,13 +9,9 @@ export default function Footer() {
 
     return (
         <footer className="bg-gray-900 text-white border-t border-gray-700/50 relative overflow-hidden">
-            {/* Background Elements */}
-           <AnimatedBackground particleCount={170} />
-
-            {/* Main Footer Content */}
+            <AnimatedBackground particleCount={170} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {/* Brand Section */}
                     <div className="lg:col-span-2">
                         <div className="flex items-center mb-4">
                             <div className="text-2xl font-bold bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
@@ -47,7 +43,6 @@ export default function Footer() {
                         </div>
                     </div>
 
-                    {/* Quick Links */}
                     <div>
                         <h3 className="text-lg font-semibold mb-4 text-white">Navigation</h3>
                         <ul className="space-y-3">
@@ -121,17 +116,6 @@ export default function Footer() {
                         <span className="ml-2">= 💖</span>
                     </div>
                 </div>
-            </div>
-
-            {/* Floating CTA */}
-            <div className="fixed bottom-6 right-6 z-40">
-                <a
-                    href="#contact"
-                    className="flex items-center justify-center w-14 h-14 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-full shadow-2xl hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-110 group animate-bounce-slow"
-                    aria-label="Get in touch"
-                >
-                    <FaEnvelope className="w-6 h-6 group-hover:animate-bounce" />
-                </a>
             </div>
         </footer>
     );

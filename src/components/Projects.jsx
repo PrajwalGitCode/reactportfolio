@@ -71,81 +71,75 @@ export default function Projects() {
                     achievements: ["Reduced support tickets by 45%", "Improved customer satisfaction by 30%"],
                     stars: 95,
                     forks: 29
-                },
+                }
+            ]
+        },
+
+
+        Microdegree: {
+            name: "Microdegree",
+            logo: "",
+            projects: [
                 {
                     id: 4,
-                    title: "Mobile App",
-                    description: "Developed a cross-platform mobile application with offline capabilities and push notifications.",
-                    image: "/api/placeholder/400/250",
+                    title: "Banking App",
+                    description: "A web app for account creation, deposits, withdrawals, and transaction tracking with user authentication and account management.",
+                    image: microbank,
                     liveLink: "https://techcorp-mobile.com",
                     githubLink: "https://github.com/techcorp/mobile",
-                    techStack: ["React Native", "Firebase", "Redux", "iOS", "Android"],
-                    duration: "Nov 2021 - Feb 2022",
-                    achievements: ["50K+ downloads", "4.8-star rating", "Featured in app stores"],
-                    stars: 118,
-                    forks: 42
+                    techStack: ["Python", "Django", "HTML", "CSS", "JavaScript", "Bootstrap", "PythonAnywhere"],
+                    achievements: ["Implemented secure user authentication and account management",
+                        "Designed responsive UI with Bootstrap for cross-device support",
+                        "Built transaction tracking system for deposits and withdrawals"],
+
                 },
                 {
                     id: 5,
-                    title: "API Gateway",
-                    description: "Built a scalable API gateway with rate limiting, authentication, and monitoring features.",
-                    image: "/api/placeholder/400/250",
+                    title: "E-Commerce Website",
+                    description: "A responsive e-commerce site with product uploads, user authentication, and smooth cross-device browsing.",
+                    image: microfullstore,
                     liveLink: "https://techcorp-api.com",
                     githubLink: "https://github.com/techcorp/api",
-                    techStack: ["Node.js", "Redis", "Docker", "Kubernetes", "Prometheus"],
-                    duration: "Jul 2021 - Oct 2021",
-                    achievements: ["Handled 1M+ requests daily", "99.99% uptime", "Reduced latency by 60%"],
-                    stars: 156,
-                    forks: 51
-                },
-                {
-                    id: 6,
-                    title: "Data Analytics Platform",
-                    description: "Created a real-time data analytics platform with custom dashboards and reporting tools.",
-                    image: "/api/placeholder/400/250",
-                    liveLink: "https://techcorp-analytics.com",
-                    githubLink: "https://github.com/techcorp/analytics",
-                    techStack: ["Python", "Django", "PostgreSQL", "D3.js", "WebSockets"],
-                    duration: "Feb 2021 - Jun 2021",
-                    achievements: ["Processed 5TB+ data", "Real-time analytics", "Custom visualization engine"],
-                    stars: 103,
-                    forks: 33
+                    techStack: ["Python", "Django", "HTML", "CSS", "JavaScript", "Bootstrap", "PythonAnywhere"],
+                    achievements: ["Developed product upload and management features",
+                        "Implemented secure authentication and user sessions",
+                        "Designed adaptive, responsive UI for seamless shopping experience"],
                 }
             ]
         },
-        startupInc: {
-            name: "dfwfwfwfwef",
-            logo: "🚀",
+
+
+        DebugTech: {
+            name: "Debug Deployment Technologies",
+            logo: "",
             projects: [
                 {
                     id: 7,
-                    title: "EarBot Clone",
-                    description: "Created a collnd team collaboration features for remote teams.",
-                    image: earbot,
+                    title: "Portfolio",
+                    description: "A fully responsive portfolio website using HTML, CSS, Bootstrap and JS showcasing my skills and projects.",
+                    image: portfolio,
                     liveLink: "https://startuptasks.com",
                     githubLink: "https://github.com/startupinc/tasks",
-                    techStack: ["React", "Firebase", "Tailwind CSS", "Context API"],
-                    duration: "Mar 2022 - Jul 2022",
-                    achievements: ["Onboarded 500+ active users", "99.9% uptime", "Mobile responsive design"],
-                    stars: 78,
-                    forks: 19
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Designed a fully responsive personal portfolio to showcase skills and projects.",
+                        "Implemented clean layouts and smooth navigation.",
+                        "Improved ability to present professional work in a structured way."],
                 },
                 {
                     id: 8,
-                    title: "CRM System",
-                    description: "Built a custom CRM system with lead tracking, pipeline management, and automation features.",
-                    image: "/api/placeholder/400/250",
+                    title: "Apple Website Clone",
+                    description: "Developed a fully responsive clone of the Apple website with modern design and interactivity.",
+                    image: appleclone,
                     liveLink: "https://startupcrm.com",
                     githubLink: "https://github.com/startupinc/crm",
-                    techStack: ["Vue.js", "Laravel", "MySQL", "WebSockets"],
-                    duration: "Oct 2021 - Feb 2022",
-                    achievements: ["Increased sales by 40%", "Automated lead scoring", "Integrated with 10+ tools"],
-                    stars: 64,
-                    forks: 15
+                    techStack: ["HTML", "CSS", "JavaScript", "Bootstrap"],
+                    achievements: ["Recreated a pixel-perfect responsive clone of Apple’s website.",
+                        "Practiced advanced Bootstrap grid system and responsive breakpoints.",
+                        "Strengthened skills in UI/UX consistency and design accuracy."],
                 }
             ]
         },
-        dataLabs: {
+        Suven: {
             name: "Suven Consultants & Technology Pvt. Ltd.",
             logo: "📊",
             projects: [
@@ -223,7 +217,7 @@ export default function Projects() {
                 }
             ]
         },
-        climateTech: {
+        InternStudio: {
             name: "InternshipStudio",
             logo: "🌍",
             projects: [
@@ -285,11 +279,7 @@ export default function Projects() {
 
     return (
         <section id="projects" className="py-20 bg-gray-950 text-white relative overflow-hidden">
-            {/* Animated Background Elements */}
-            <AnimatedBackground particleCount={170} />
-
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                {/* Section Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -394,21 +384,16 @@ export default function Projects() {
                                 <div className="mb-4">
                                     <h4 className="text-sm font-semibold text-gray-400 mb-2">TECH STACK</h4>
                                     <div className="flex flex-wrap gap-2">
-                                        {project.techStack.slice(0, 4).map((tech, index) => (
+                                        {project.techStack.slice(0, 10).map((tech, index) => (
                                             <span
                                                 key={index}
                                                 className="flex items-center px-3 py-1 bg-gray-800/50 rounded-lg text-sm text-gray-300"
                                                 title={tech}
                                             >
                                                 {getTechIcon(tech)}
-                                                <span className="ml-2 truncate max-w-20">{tech}</span>
+                                                <span className="ml-2 max-w-20">{tech}</span>
                                             </span>
                                         ))}
-                                        {project.techStack.length > 4 && (
-                                            <span className="px-3 py-1 bg-gray-800/50 rounded-lg text-sm text-gray-400">
-                                                +{project.techStack.length - 4} more
-                                            </span>
-                                        )}
                                     </div>
                                 </div>
 
