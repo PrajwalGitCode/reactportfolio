@@ -346,7 +346,6 @@ export default function Projects() {
                     </span>
                 </motion.div>
 
-                {/* Projects Grid - Dynamic columns based on project count */}
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -374,13 +373,11 @@ export default function Projects() {
                                 </div>
                             </div>
 
-                            {/* Project Content */}
                             <div className="p-6">
                                 <p className="text-gray-300 mb-4 leading-relaxed line-clamp-3">
                                     {project.description}
                                 </p>
 
-                                {/* Tech Stack */}
                                 <div className="mb-4">
                                     <h4 className="text-sm font-semibold text-gray-400 mb-2">TECH STACK</h4>
                                     <div className="flex flex-wrap gap-2">

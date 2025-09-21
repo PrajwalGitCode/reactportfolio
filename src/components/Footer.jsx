@@ -3,13 +3,11 @@ import React from "react";
 import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaHeart, FaCode } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
 import "../App.css"
-import AnimatedBackground from "./AnimatedBackground"
 export default function Footer() {
     const currentYear = new Date().getFullYear();
 
     return (
         <footer className="bg-gray-900 text-white border-t border-gray-700/50 relative overflow-hidden">
-            <AnimatedBackground particleCount={170} />
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
                     <div className="lg:col-span-2">
