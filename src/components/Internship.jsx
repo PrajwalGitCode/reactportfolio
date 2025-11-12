@@ -3,8 +3,63 @@ import React from "react";
 import "../App.css"
 import AnimatedBackground from "./AnimatedBackground";
 
-export default function Intrnships() {
+export default function Internships() {
   const internships = [
+    {
+      internship: "Global Next Consulting India Private Limited · MERN Stack Intern",
+      duration: "August 2025 – October 2025",
+      items: [
+        {
+          title: "Product Launch Website",
+          description:
+            "Developed a responsive front-end website to showcase product launch details with modern layouts, smooth animations, and a clean UI design for enhanced user experience.",
+          skills: ["HTML", "CSS", "JavaScript", "Responsive Design", "UI/UX"]
+        },
+        {
+          title: "Full-Stack Web Applications",
+          description:
+            "Built and deployed multiple full-stack applications including a social media platform, currency exchange manager, portfolio tracker API, and a task manager app — integrating React, Node.js, Express, and MongoDB for seamless functionality.",
+          skills: ["MERN Stack", "React", "Node.js", "Express", "MongoDB", "API Integration", "CRUD Operations"]
+        },
+        {
+          title: "Global Connect (Major Team Project)",
+          description:
+            "Collaborated in a team to develop a global networking platform enabling real-time communication, user connections, and community engagement using the MERN stack.",
+          skills: ["MERN Stack", "React", "Node.js", "Express", "MongoDB", "Team Collaboration", "Real-Time Communication"]
+        }
+      ],
+    },
+    {
+      internship: "Navikshaa Technologies · MERN Stack Intern",
+      duration: "May 2025 – September 2025",
+      items: [
+        {
+          title: "Lead Management System",
+          description:
+            "A role-based lead management platform with separate dashboards for Admin, Sales, and Marketing teams. Includes lead import/assignment, status tracking (callback, follow-up, etc.), advanced search, notifications, and interactive slider controls for streamlined workflow management.",
+          skills: ["MERN Stack", "React", "Node.js", "Express", "MongoDB", "REST API", "Role-Based Access Control"]
+        },
+        {
+          title: "Learning Management System (LMS)",
+          description:
+            "Contributed to the development of an LMS platform with a focus on user authentication, secure data handling, and an intuitive dashboard interface for improved user experience.",
+          skills: ["React", "Node.js", "Express", "MongoDB", "JWT Authentication", "UI/UX Design"]
+        },
+        {
+          title: "Real-Time Chat Application",
+          description:
+            "Developed a real-time chat platform supporting instant messaging, user authentication, and active user status updates using WebSocket communication for seamless interactions.",
+          skills: ["MERN Stack", "React", "Node.js", "Express", "MongoDB", "Socket.IO", "Real-Time Communication"]
+        },
+        {
+          title: "Responsive Front-End Dashboards",
+          description:
+            "Developed responsive dashboards for Travel, E-commerce, and IT platforms using React, Tailwind CSS, and Bootstrap, emphasizing clean UI design and seamless user experience across devices.",
+          skills: ["React", "Tailwind CSS", "Bootstrap", "Responsive Design", "UI/UX"]
+        }
+      ],
+    },
+
     {
       internship: "MicroDegree · Python Full-Stack Intern",
       duration: "July 2024 – October 2024",

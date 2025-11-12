@@ -7,7 +7,7 @@ import { SiReact, SiNodedotjs, SiMongodb, SiTailwindcss, SiFirebase, SiPython, S
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Projects() {
-    const [activeCompany, setActiveCompany] = useState("techCorp");
+    const [activeCompany, setActiveCompany] = useState("GNCIPL");
     const [expandedProject, setExpandedProject] = useState(null);
 
     const getTechIcon = (tech) => {

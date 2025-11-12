@@ -22,12 +22,128 @@ import tender from "../images/tender.png";
 import tutor from "../images/tutor.png";
 
 export const companiesData = {
-    techCorp: {
-        name: "TechCorp Solutions",
+
+    GNCIPL: {
+        name: "Global Next Consulting India",
         logo: "🏢",
         projects: [
             {
-                id: 1,
+                id: 23,
+                title: "Global Connect",
+                description:
+                    "Developed a full-stack MERN social and professional networking platform where users can create accounts, send friend requests, post updates, like/reply on feeds, and chat with connections, functioning similarly to a job portal.",
+                image: "/api/placeholder/400/250",
+                liveLink: "https://globalconnect.netlify.app",
+                githubLink: "https://github.com/PrajwalGitCode/GlobalConnect",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
+                achievements: [
+                    "Implemented secure authentication and user profile management using JWT and bcrypt",
+                    "Built social feed with posts, likes, replies, and real-time updates",
+                    "Developed friend request and connection management system",
+                    "Integrated real-time chat functionality using Socket.IO",
+                    "Designed responsive and professional UI using React and Tailwind CSS"],
+            },
+
+            {
+                id: 22,
+                title: "Task Manager App",
+                description:
+                    "Built a full-stack MERN application for managing tasks, enabling users to create, update, and delete tasks, track progress, and organize work with a secure login system and responsive dashboard.",
+                image: "/api/placeholder/400/250",
+                liveLink: "https://taskmanager-app.netlify.app",
+                githubLink: "https://github.com/PrajwalGitCode/TaskManagerApp",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Axios"],
+                achievements: [
+                    "Implemented secure user authentication and profile management using JWT and bcrypt",
+                    "Developed CRUD functionality for tasks with real-time updates",
+                    "Designed a clean and responsive dashboard UI using React and Tailwind CSS",
+                    "Added task prioritization, deadlines, and status tracking features",
+                    "Optimized backend performance for smooth task management and retrieval"],
+            },
+
+            {
+                id: 21,
+                title: "Currency Exchange Manager",
+                description:
+                    "Developed a secure MERN-based currency conversion platform that allows users to convert between multiple currencies in real time, manage exchange history, and view live rates with a sleek dashboard interface.",
+                image: "/api/placeholder/400/250",
+                liveLink: "https://currencyexchange-manager.netlify.app",
+                githubLink: "https://github.com/PrajwalGitCode/CurrencyExchangeManager",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Axios", "ExchangeRate API"],
+                achievements: [
+                    "Integrated real-time exchange rate data using third-party currency APIs",
+                    "Implemented secure authentication and user profile management with JWT and bcrypt",
+                    "Built an intuitive dashboard for instant currency conversion and transaction history tracking",
+                    "Optimized API calls for faster load times and accurate rate calculations",
+                    "Designed responsive and accessible UI using React and Tailwind CSS"],
+            },
+
+            {
+                id: 20,
+                title: "StockMarket",
+                description:
+                    "Built a full-stack MERN application simulating real-time stock trading, enabling users to buy, sell, and track stocks while visualizing portfolio performance through interactive charts.",
+                image: "/api/placeholder/400/250",
+                liveLink: "https://stockmarket-trade.netlify.app",
+                githubLink: "https://github.com/PrajwalGitCode/stockmarket",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT Authentication", "Tailwind CSS"],
+                achievements: [
+                    "Implemented real-time stock price updates and portfolio tracking",
+                    "Developed secure user authentication and transaction management using JWT and bcrypt",
+                    "Created responsive trading dashboards and portfolio analytics",
+                    "Optimized API performance and ensured accurate trade simulation logic",
+                    "Designed modern, user-friendly interface with React and Tailwind CSS"]
+            },
+
+            {
+                id: 19,
+                title: "Nebulaverse",
+                description:
+                    "Developed a full-stack social media platform using the MERN stack, allowing users to create posts, like, comment, and interact in real time through a responsive and modern interface.",
+                image: "/api/placeholder/400/250",
+                liveLink: "https://nebulaverse.netlify.app",
+                githubLink: "https://github.com/PrajwalGitCode/Nebulaverse",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication"],
+                achievements: [
+                    "Implemented secure authentication and authorization using JWT and bcrypt",
+                    "Created post, like, and comment systems with dynamic real-time updates",
+                    "Designed an intuitive, mobile-first UI with React and Tailwind CSS",
+                    "Integrated RESTful APIs with MongoDB for efficient content and user management",
+                    "Built scalable backend architecture ready for chat and notification expansion"]
+            },
+            {
+                id: 18,
+                title: "Product Launch",
+                description: "A web-based product-launch landing page built with HTML, CSS and JavaScript. The project features a fully responsive layout, interactive UI elements, and smooth single-page navigation tailored for marketing new products online.",
+                image: "/api/placeholder/400/250",
+                liveLink: "https://techcorp-dashboard.com",
+                githubLink: "https://github.com/techcorp/dashboard",
+                techStack: ["HTML", "CSS", "JavaScript"],
+                achievements: [
+                    "Developed a mobile-first responsive landing page using CSS media queries and flexbox/grid for layout adaptation",
+                    "Implemented interactive visitor engagement components (e.g., smooth scroll navigation, dynamic content revealed on scroll)",
+                    "Optimized performance by minimizing external dependencies and implementing efficient, semantic code structure"]
+            },
+        ]
+    },
+
+    Navikshaa: {
+        name: "Navikshaa Technologies LLP",
+        logo: "",
+        projects: [
+            {
+                id: 17,
+                title: "Chat app",
+                description: "Built a full-stack e-commerce solution serving 10K+ users with React, Node.js, and MongoDB. Implemented payment processing, inventory management, and admin dashboard.",
+                image: "/api/placeholder/400/250",
+                liveLink: "https://techcorp-ecommerce.com",
+                githubLink: "https://github.com/techcorp/ecommerce",
+                techStack: ["React", "Node.js", "MongoDB", "Express", "Stripe", "AWS"],
+                duration: "Jan 2023 - Present",
+                achievements: ["Increased conversion rate by 35%", "Reduced load time by 40%", "Implemented CI/CD pipeline"],
+            },
+            {
+                id: 16,
                 title: "E-Commerce Platform",
                 description: "Built a full-stack e-commerce solution serving 10K+ users with React, Node.js, and MongoDB. Implemented payment processing, inventory management, and admin dashboard.",
                 image: "/api/placeholder/400/250",
@@ -36,24 +152,20 @@ export const companiesData = {
                 techStack: ["React", "Node.js", "MongoDB", "Express", "Stripe", "AWS"],
                 duration: "Jan 2023 - Present",
                 achievements: ["Increased conversion rate by 35%", "Reduced load time by 40%", "Implemented CI/CD pipeline"],
-                stars: 142,
-                forks: 38
             },
             {
-                id: 2,
-                title: "Internal Dashboard",
+                id: 15,
+                title: "Travel Booking System",
                 description: "Developed an analytics dashboard for internal team management with real-time metrics and reporting features.",
                 image: "/api/placeholder/400/250",
                 liveLink: "https://techcorp-dashboard.com",
                 githubLink: "https://github.com/techcorp/dashboard",
                 techStack: ["React", "Firebase", "Chart.js", "Tailwind CSS"],
                 achievements: ["Improved team productivity by 25%", "Automated reporting system"],
-                stars: 87,
-                forks: 21
             },
             {
-                id: 3,
-                title: "Customer Portal",
+                id: 14,
+                title: "TODO List App",
                 description: "Created a comprehensive customer portal with account management, billing, and support features.",
                 image: "/api/placeholder/400/250",
                 liveLink: "https://techcorp-portal.com",
@@ -61,8 +173,6 @@ export const companiesData = {
                 techStack: ["React", "Node.js", "MySQL", "Stripe", "JWT"],
                 duration: "Mar 2022 - Jul 2022",
                 achievements: ["Reduced support tickets by 45%", "Improved customer satisfaction by 30%"],
-                stars: 95,
-                forks: 29
             }
         ]
     },
@@ -73,7 +183,7 @@ export const companiesData = {
         logo: "",
         projects: [
             {
-                id: 4,
+                id: 13,
                 title: "Banking App",
                 description: "A web app for account creation, deposits, withdrawals, and transaction tracking with user authentication and account management.",
                 image: microbank,
@@ -86,7 +196,7 @@ export const companiesData = {
 
             },
             {
-                id: 5,
+                id: 12,
                 title: "E-Commerce Website",
                 description: "A responsive e-commerce site with product uploads, user authentication, and smooth cross-device browsing.",
                 image: microfullstore,
@@ -98,7 +208,7 @@ export const companiesData = {
                     "Designed adaptive, responsive UI for seamless shopping experience"],
             },
             {
-                id: 6,
+                id: 11,
                 title: "Watch App Store",
                 description: "A responsive watch e-commerce store showcasing products with a clean Bootstrap-based design.",
                 image: microfullstore,
@@ -118,7 +228,7 @@ export const companiesData = {
         logo: "",
         projects: [
             {
-                id: 7,
+                id: 10,
                 title: "Portfolio",
                 description: "A fully responsive portfolio website using HTML, CSS, Bootstrap and JS showcasing my skills and projects.",
                 image: portfolio,
@@ -130,7 +240,7 @@ export const companiesData = {
                     "Improved ability to present professional work in a structured way."],
             },
             {
-                id: 8,
+                id: 9,
                 title: "Apple Website Clone",
                 description: "Developed a fully responsive clone of the Apple website with modern design and interactivity.",
                 image: appleclone,
@@ -148,7 +258,7 @@ export const companiesData = {
         logo: "📊",
         projects: [
             {
-                id: 9,
+                id: 8,
                 title: "Tutor Point Clone",
                 description: "Developed a responsive multi-page clone of TutorialsPoint with courses, ebooks, and coding examples using Bootstrap.",
                 image: tutor,
@@ -160,7 +270,7 @@ export const companiesData = {
                     "Improved skills in structuring large content websites"],
             },
             {
-                id: 10,
+                id: 7,
                 title: "E-Learn Website",
                 description: "Built a single-page responsive e-learning website with sections for courses, search, and footer layout.",
                 image: elearn,
@@ -172,7 +282,7 @@ export const companiesData = {
                     "Enhanced skills in layout division and semantic structuring"],
             },
             {
-                id: 11,
+                id: 6,
                 title: "EarBot Lifecycle Website",
                 description: "Created a responsive support portal for music system products with image animations, carousel, and gallery.",
                 image: earbot,
@@ -184,7 +294,7 @@ export const companiesData = {
                     "Strengthened interactive page design abilities"],
             },
             {
-                id: 12,
+                id: 5,
                 title: "Opexx Tender Portal",
                 description: "Developed a responsive clone of Oppex.com for browsing tenders, with search and pricing sections.",
                 image: tender,
@@ -196,7 +306,7 @@ export const companiesData = {
                     "Designed pricing section with card hover effects"],
             },
             {
-                id: 13,
+                id: 4,
                 title: "E-Food Website",
                 description: "Built a responsive restaurant and food discovery website similar to Zomato/UberEats.",
                 image: "https://statuesque-starlight-961076.netlify.app/",
@@ -208,7 +318,7 @@ export const companiesData = {
                     "Designed category-wise food listing with responsive cards"],
             },
             {
-                id: 14,
+                id: 3,
                 title: "Alumni Management Portal",
                 description: "Created a responsive alumni portal with blogs, portfolios, events, and contact integration.",
                 image: alumni,
@@ -226,7 +336,7 @@ export const companiesData = {
         logo: "🌍",
         projects: [
             {
-                id: 16,
+                id: 2,
                 title: "E Commerce Website",
                 description: "Developed a responsive e-commerce website using HTML, CSS, and JS, featuring product listings, and a seamless experience across all devices.",
                 image: inteImg,
@@ -238,7 +348,7 @@ export const companiesData = {
                     "Improved problem-solving skills and understanding of real-world project workflow"],
             },
             {
-                id: 17,
+                id: 1,
                 title: "CSS Cheat Sheet",
                 description: "Created a responsive CSS cheat sheet with all the essential features, styling techniques for quick reference.",
                 image: sheet,
