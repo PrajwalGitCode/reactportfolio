@@ -20,21 +20,27 @@ import sheet from "../images/sheet.png";
 import techweb from "../images/techweb.png";
 import tender from "../images/tender.png";
 import tutor from "../images/tutor.png";
+import jobportal from "../images/jobportal.png";
+import neurox from "../images/neurox.png";
+import currency from "../images/currency.png";
+import stock from "../images/stock.png";
+import socialmedia from "../images/socialmedia.png";
+import taskkeep from "../images/taskkeep.png";  
 
 export const companiesData = {
 
     GNCIPL: {
         name: "Global Next Consulting India",
-        logo: "🏢",
+        logo: "",
         projects: [
             {
                 id: 23,
                 title: "Global Connect",
                 description:
                     "Developed a full-stack MERN social and professional networking platform where users can create accounts, send friend requests, post updates, like/reply on feeds, and chat with connections, functioning similarly to a job portal.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://globalconnect.netlify.app",
-                githubLink: "https://github.com/PrajwalGitCode/GlobalConnect",
+                image: jobportal,
+                liveLink: "https://net-global-connect.netlify.app/",
+                githubLink: " https://github.com/TejasriM07/NetGlobalConnect.git",
                 techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
                 achievements: [
                     "Implemented secure authentication and user profile management using JWT and bcrypt",
@@ -49,9 +55,9 @@ export const companiesData = {
                 title: "Task Manager App",
                 description:
                     "Built a full-stack MERN application for managing tasks, enabling users to create, update, and delete tasks, track progress, and organize work with a secure login system and responsive dashboard.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://taskmanager-app.netlify.app",
-                githubLink: "https://github.com/PrajwalGitCode/TaskManagerApp",
+                image: taskkeep,
+                liveLink: "https://silver-hummingbird-c09f37.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/TaskKeeper",
                 techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Axios"],
                 achievements: [
                     "Implemented secure user authentication and profile management using JWT and bcrypt",
@@ -66,9 +72,9 @@ export const companiesData = {
                 title: "Currency Exchange Manager",
                 description:
                     "Developed a secure MERN-based currency conversion platform that allows users to convert between multiple currencies in real time, manage exchange history, and view live rates with a sleek dashboard interface.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://currencyexchange-manager.netlify.app",
-                githubLink: "https://github.com/PrajwalGitCode/CurrencyExchangeManager",
+                image: currency,
+                liveLink: "https://unique-tiramisu-currencyconverter.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/currencyconvert",
                 techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Axios", "ExchangeRate API"],
                 achievements: [
                     "Integrated real-time exchange rate data using third-party currency APIs",
@@ -83,8 +89,8 @@ export const companiesData = {
                 title: "StockMarket",
                 description:
                     "Built a full-stack MERN application simulating real-time stock trading, enabling users to buy, sell, and track stocks while visualizing portfolio performance through interactive charts.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://stockmarket-trade.netlify.app",
+                image: stock,
+                liveLink: "https://github.com/PrajwalGitCode/stockmarket",
                 githubLink: "https://github.com/PrajwalGitCode/stockmarket",
                 techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT Authentication", "Tailwind CSS"],
                 achievements: [
@@ -100,8 +106,8 @@ export const companiesData = {
                 title: "Nebulaverse",
                 description:
                     "Developed a full-stack social media platform using the MERN stack, allowing users to create posts, like, comment, and interact in real time through a responsive and modern interface.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://nebulaverse.netlify.app",
+                image: socialmedia,
+                liveLink: "https://reliable-empanada-b77023.netlify.app/feed",
                 githubLink: "https://github.com/PrajwalGitCode/Nebulaverse",
                 techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication"],
                 achievements: [
@@ -115,9 +121,9 @@ export const companiesData = {
                 id: 18,
                 title: "Product Launch",
                 description: "A web-based product-launch landing page built with HTML, CSS and JavaScript. The project features a fully responsive layout, interactive UI elements, and smooth single-page navigation tailored for marketing new products online.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://techcorp-dashboard.com",
-                githubLink: "https://github.com/techcorp/dashboard",
+                image: neurox,
+                liveLink: "https://luminous-gaufre-5aaf5d.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/ProductLaunch",
                 techStack: ["HTML", "CSS", "JavaScript"],
                 achievements: [
                     "Developed a mobile-first responsive landing page using CSS media queries and flexbox/grid for layout adaptation",
