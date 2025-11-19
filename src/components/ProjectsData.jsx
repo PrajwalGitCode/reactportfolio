@@ -25,7 +25,7 @@ import neurox from "../images/neurox.png";
 import currency from "../images/currency.png";
 import stock from "../images/stock.png";
 import socialmedia from "../images/socialmedia.png";
-import taskkeep from "../images/taskkeep.png";  
+import taskkeep from "../images/taskkeep.png";
 
 export const companiesData = {
 
@@ -139,47 +139,72 @@ export const companiesData = {
         projects: [
             {
                 id: 17,
-                title: "Chat app",
-                description: "Built a full-stack e-commerce solution serving 10K+ users with React, Node.js, and MongoDB. Implemented payment processing, inventory management, and admin dashboard.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://techcorp-ecommerce.com",
-                githubLink: "https://github.com/techcorp/ecommerce",
-                techStack: ["React", "Node.js", "MongoDB", "Express", "Stripe", "AWS"],
-                duration: "Jan 2023 - Present",
-                achievements: ["Increased conversion rate by 35%", "Reduced load time by 40%", "Implemented CI/CD pipeline"],
+                title: "Real-Time Chat Application",
+                description: "Developed a full-stack MERN real-time chat application enabling users to create accounts, start private or group chats, send images, and receive instant messages with online/offline presence tracking.",
+                image: chatapp,
+                liveLink: "https://naviksha-chatapp.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/chat-app",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
+                achievements: [
+                    "Implemented secure JWT-based authentication and user session handling",
+                    "Integrated Socket.IO for real-time messaging and live user presence",
+                    "Added support for private chats, group chats, and media sharing",
+                    "Designed responsive and modern chat UI with React and Tailwind CSS",
+                    "Optimized backend socket event handling for seamless chat experience"
+                ],
             },
+
             {
                 id: 16,
                 title: "E-Commerce Platform",
-                description: "Built a full-stack e-commerce solution serving 10K+ users with React, Node.js, and MongoDB. Implemented payment processing, inventory management, and admin dashboard.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://techcorp-ecommerce.com",
-                githubLink: "https://github.com/techcorp/ecommerce",
-                techStack: ["React", "Node.js", "MongoDB", "Express", "Stripe", "AWS"],
-                duration: "Jan 2023 - Present",
-                achievements: ["Increased conversion rate by 35%", "Reduced load time by 40%", "Implemented CI/CD pipeline"],
+                description: "Built a full-stack MERN e-commerce platform supporting product management, cart operations, order placement, and secure authentication, with an intuitive and fully responsive interface.",
+                image: ecommerce,
+                liveLink: "https://naviksha-ecommerce.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/ecomm-app",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Stripe API", "Axios"],
+                achievements: [
+                    "Implemented secure checkout flow using Stripe payment integration",
+                    "Developed complete product CRUD, wishlist, cart management",
+                    "Created admin dashboard with order tracking and inventory management",
+                    "Optimized API routes for faster product loading and search performance",
+                    "Designed clean and professional UI for better user experience"
+                ],
             },
+
             {
                 id: 15,
-                title: "Travel Booking System",
-                description: "Developed an analytics dashboard for internal team management with real-time metrics and reporting features.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://techcorp-dashboard.com",
-                githubLink: "https://github.com/techcorp/dashboard",
-                techStack: ["React", "Firebase", "Chart.js", "Tailwind CSS"],
-                achievements: ["Improved team productivity by 25%", "Automated reporting system"],
+                title: "Travel Booking System (Frontend UI)",
+                description: "Developed a fully responsive travel booking UI using React and Tailwind CSS, featuring destination cards, trip filters, booking form UI, and a modern layout focusing on clean design and smooth user experience.",
+                image: travel,
+                liveLink: "https://naviksha-travel-ui.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/travel-ui",
+                techStack: ["React.js", "Tailwind CSS", "JavaScript"
+                ],
+                achievements: [
+                    "Designed an elegant, mobile-first UI with Tailwind CSS",
+                    "Created reusable components for destinations, trip listings, and booking forms",
+                    "Implemented smooth animations, transitions, and section-based navigation",
+                    "Optimized layout for fast loading and seamless user interaction",
+                    "Structured component architecture for easy backend integration in future"
+                ],
             },
+
             {
                 id: 14,
-                title: "TODO List App",
-                description: "Created a comprehensive customer portal with account management, billing, and support features.",
-                image: "/api/placeholder/400/250",
-                liveLink: "https://techcorp-portal.com",
-                githubLink: "https://github.com/techcorp/portal",
-                techStack: ["React", "Node.js", "MySQL", "Stripe", "JWT"],
-                duration: "Mar 2022 - Jul 2022",
-                achievements: ["Reduced support tickets by 45%", "Improved customer satisfaction by 30%"],
-            }
+                title: "TODO List Application",
+                description: "Created a full-stack productivity application for managing daily tasks with features like priority tagging, status updates, deadline reminders, and secure login support.",
+                image: todo,
+                liveLink: "https://naviksha-todo.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/todo-mern",
+                techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT Authentication", "Tailwind CSS", "Axios"],
+                achievements: [
+                    "Implemented CRUD operations with user-based task separation",
+                    "Integrated authentication using JWT and bcrypt",
+                    "Added reminders, task priority, and status tracking",
+                    "Built a clean and minimal dashboard UI using React & Tailwind",
+                    "Optimized performance for smooth task retrieval and updates"
+                ],
+            },
         ]
     },
 
