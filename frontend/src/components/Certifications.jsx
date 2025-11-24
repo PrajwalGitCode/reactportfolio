@@ -212,11 +212,9 @@ export default function Certifications() {
 
   return (
     <section id="certifications" className="py-20 bg-gray-950 dark:from-gray-900 dark:to-gray-800 relative overflow-hidden">
-      {/* Animated Background Elements */}
       <AnimatedBackground particleCount={170} />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -239,7 +237,6 @@ export default function Certifications() {
           </p>
         </motion.div>
 
-        {/* Certifications List */}
         <div className="space-y-4">
           {certificationsData.map((cert, index) => (
             <motion.div
@@ -250,7 +247,6 @@ export default function Certifications() {
               className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg overflow-hidden hover:shadow-xl hover:scale-[1.01] transition-all duration-300"
             >
 
-              {/* Dropdown Header - Always Visible */}
               <button
                 onClick={() => toggleCert(cert.id)}
                 className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200"
@@ -286,7 +282,6 @@ export default function Certifications() {
                 </div>
               </button>
 
-              {/* Dropdown Content - Only shown when expanded */}
               {expandedCert === cert.id && (
                 <motion.div
                   initial={{ opacity: 0, height: 0 }}
@@ -296,7 +291,6 @@ export default function Certifications() {
                   className="px-6 pb-4"
                 >
                   <div className="border-t border-gray-200/50 dark:border-gray-700/50 pt-4">
-                    {/* Skills */}
                     <div className="mb-4">
                       <h4 className="font-medium text-gray-900 dark:text-white mb-2 text-sm">
                         Skills Covered:
@@ -340,7 +334,7 @@ export default function Certifications() {
           ))}
         </div>
 
-        {/* Call to Action */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

@@ -35,14 +35,10 @@ export default function About() {
   ];
 
   return (
-    <section
-      id="about"
-      className="py-20 bg-gray-950 text-white relative overflow-hidden">
-
+    <section id="about" className="py-20 bg-gray-950 text-white relative overflow-hidden">
       <AnimatedBackground particleCount={170} />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             About{" "}
@@ -54,7 +50,6 @@ export default function About() {
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Content */}
           <div className="space-y-6">
             <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
               <h3 className="text-2xl font-semibold mb-6 text-gray-200">
@@ -76,7 +71,6 @@ export default function About() {
               </p>
             </div>
 
-            {/* Experience Stats */}
             <div className="grid grid-cols-2 gap-4">
               <div className="bg-gray-800/40 backdrop-blur-sm rounded-xl p-6 text-center border border-gray-700/30">
                 <div className="text-3xl font-bold text-indigo-400 mb-2">7+</div>
@@ -89,7 +83,6 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right Column - Skills (No Bars) */}
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-2xl p-8 border border-gray-700/50">
             <h3 className="text-2xl font-semibold mb-8 text-center text-gray-200">
               Technical <span className="text-indigo-400">Skills</span>

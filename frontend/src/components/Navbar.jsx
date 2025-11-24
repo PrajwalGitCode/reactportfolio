@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import React, { useState, useEffect } from "react";
+import resume from "../images/resume.pdf";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,13 +10,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Update scroll progress
       const scrollTop = window.scrollY;
       const docHeight = document.body.scrollHeight - window.innerHeight;
       const progress = (scrollTop / docHeight) * 100;
       setScrollProgress(progress);
 
-      // Update active section based on scroll position
       const sections = document.querySelectorAll("section");
       sections.forEach((section) => {
         const sectionTop = section.offsetTop - 100;
@@ -24,8 +23,6 @@ export default function Navbar() {
           setActiveSection(section.getAttribute("id"));
         }
       });
-
-      // Add a subtle shadow when scrolled
       setScrolled(scrollTop > 10);
     };
 
@@ -46,7 +43,6 @@ export default function Navbar() {
   return (
     <>
       <nav className="fixed w-full z-50 py-4 bg-gray-900/90 backdrop-blur-md shadow-xl transition-all duration-300">
-        {/* Scroll Progress Bar */}
         <div className="h-1 w-full bg-gray-800 absolute bottom-0 left-0">
           <div
             className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 transition-all duration-300 ease-out"
@@ -56,7 +52,6 @@ export default function Navbar() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex justify-between items-center">
-            {/* Logo with tech-inspired design */}
             <div className="flex-shrink-0">
               <a
                 href="#home"
@@ -71,7 +66,6 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Desktop Menu with minimal design */}
             <div className="hidden md:flex items-center space-x-6">
               {navItems.map((item) => (
                 <a
@@ -87,16 +81,14 @@ export default function Navbar() {
                     }`}
                 >
                   {item.charAt(0).toUpperCase() + item.slice(1)}
-                  {/* Active indicator */}
                   {activeSection === item && (
                     <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-indigo-400 rounded-full"></span>
                   )}
                 </a>
               ))}
 
-              {/* Resume Button with subtle border */}
               <a
-                href="/resume.pdf"
+                href={resume}
                 download
                 className="px-4 py-2 border border-indigo-500 text-indigo-300 rounded-md font-medium hover:bg-indigo-500/10 hover:text-white transition-all duration-300 hover:scale-105"
               >
@@ -104,7 +96,6 @@ export default function Navbar() {
               </a>
             </div>
 
-            {/* Mobile Menu Button - Minimal design */}
             <div className="md:hidden flex items-center">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -121,7 +112,6 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile Menu - Glassmorphism style */}
         <div className={`md:hidden absolute top-full left-0 w-full overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}`}>
           <div className="bg-gray-900/95 backdrop-blur-xl border-t border-gray-800/50 px-4 py-3">
             {navItems.map((item) => (
@@ -141,7 +131,7 @@ export default function Navbar() {
               </a>
             ))}
             <a
-              href="/resume.pdf"
+              href={resume}
               download
               className="block py-3 px-4 rounded-md my-1 text-center border border-indigo-500/50 text-indigo-300 hover:bg-indigo-500/10 hover:text-white transition-all duration-300 mt-2"
             >

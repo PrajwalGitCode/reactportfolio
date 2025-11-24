@@ -224,14 +224,10 @@ export default function Internships() {
   ];
 
   return (
-    <section
-      id="internships"
-      className="relative py-20 bg-gray-950 text-white overflow-hidden"
-    >
+    <section id="internships"className="relative py-20 bg-gray-950 text-white overflow-hidden">
       <AnimatedBackground particleCount={170} />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold">
             Work{" "}
@@ -242,11 +238,9 @@ export default function Internships() {
           <div className="w-24 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto mt-4"></div>
         </div>
 
-        {/* Timeline Line */}
+
         <div className="absolute left-1/2 top-40 bottom-10 w-1 bg-gradient-to-b 
         from-pink-500 via-purple-500 to-indigo-500 rounded-full transform -translate-x-1/2 z-0"></div>
-
-        {/* Timeline Items */}
         <div className="space-y-20 relative">
           {internships.map((internship, i) => (
             <div
@@ -254,18 +248,15 @@ export default function Internships() {
               className={`relative flex items-start ${i % 2 === 0 ? "justify-start" : "justify-end"
                 }`}
             >
-              {/* Connector Dot */}
               <span className="absolute left-1/2 w-6 h-6 bg-gradient-to-r 
               from-pink-500 to-purple-500 rounded-full border-4 border-gray-950 
               transform -translate-x-1/2 z-10 shadow-lg shadow-pink-500/30 animate-pulse"></span>
 
-              {/* Card */}
               <div
                 className={`w-full md:w-5/12 p-6 rounded-2xl bg-gray-900/70 backdrop-blur-md 
                 border border-gray-700/50 shadow-xl hover:shadow-pink-500/20 transition-all duration-300
                 ${i % 2 === 0 ? "mr-auto text-left" : "ml-auto text-right"}`}
               >
-                {/* Internship Header */}
                 <div className="mb-4">
                   <h3 className="text-xl font-semibold text-pink-400">
                     {internship.internship}
@@ -279,7 +270,7 @@ export default function Internships() {
                     {internship.duration}
                   </div>
                 </div>
-                {/* Dropdown Toggle Button */}
+
                 <button
                   onClick={() => toggleOpen(i)}
                   className={`mt-2 px-4 py-2 text-sm rounded-lg font-medium transition 
@@ -295,7 +286,6 @@ export default function Internships() {
                       More Details <FaChevronDown className="inline ml-1" />
                     </>
                   )}
-
                 </button>
 
                 {/* Dropdown Content */}

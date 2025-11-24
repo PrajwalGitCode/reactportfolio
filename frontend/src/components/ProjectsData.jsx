@@ -282,7 +282,7 @@ export const companiesData = {
     },
     Suven: {
         name: "Suven Consultants & Technology Pvt. Ltd.",
-        logo: "📊",
+        logo: "",
         projects: [
             {
                 id: 8,
@@ -360,7 +360,7 @@ export const companiesData = {
     },
     InternStudio: {
         name: "InternshipStudio",
-        logo: "🌍",
+        logo: "",
         projects: [
             {
                 id: 2,

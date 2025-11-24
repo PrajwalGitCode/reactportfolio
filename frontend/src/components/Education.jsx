@@ -36,10 +36,7 @@ export default function Education() {
   ];
 
   return (
-    <section
-      id="education"
-      className="py-20 bg-gray-950 text-white relative overflow-hidden"
-    >
+    <section id="education" className="py-20 bg-gray-950 text-white relative overflow-hidden">
       <AnimatedBackground particleCount={170} />
 
       <div className="max-w-4xl mx-auto px-6 relative z-10">
@@ -54,20 +51,15 @@ export default function Education() {
           <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-4"></div>
         </div>
 
-        {/* Timeline - Restored original alignment */}
         <div className="relative border-l border-gray-700 ml-4">
           {educationData.map((item) => (
             <div key={item.id} className="mb-12 ml-8">
-              {/* Dot - Restored original style with slight enhancement */}
               <div className="absolute -left-4 flex items-center justify-center w-8 h-8 rounded-full bg-gray-800 border border-gray-600">
                 {item.icon}
               </div>
 
-              {/* Card - Restored original alignment with enhanced background */}
               <div className="bg-gray-800/60 backdrop-blur-sm border border-gray-700/50 p-6 rounded-xl shadow-md hover:shadow-indigo-500/20 transition-all duration-300 relative overflow-hidden group">
-                {/* Subtle hover effect */}
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/0 via-indigo-500/5 to-purple-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-
                 <span className="text-sm text-indigo-400 font-semibold relative z-10">
                   {item.year}
                 </span>

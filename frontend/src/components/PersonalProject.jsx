@@ -40,7 +40,7 @@ export default function PersonalProjects() {
             image: passgen,
             liveLink: "https://sweet-salmiakki-passwordgen.netlify.app/landing",
             githubLink: "https://github.com/PrajwalGitCode/nextpassgen",
-            techStack: ["MongoDB", "Express.js","Next.js", "React", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
+            techStack: ["MongoDB", "Express.js", "Next.js", "React", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
         },
         {
             id: 4,
@@ -84,12 +84,13 @@ export default function PersonalProjects() {
                         <div className="bg-gradient-to-r from-purple-500 to-pink-500 rounded-full px-6 py-2 shadow-lg">
                             <span className="text-white font-mono text-sm font-semibold tracking-wide">PERSONAL PROJECTS</span>
                         </div>
+
                     </div>
 
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 text-white">
                         Creative <span className="bg-gradient-to-r from-purple-300 to-pink-300 bg-clip-text text-transparent">Experiments</span>
                     </h2>
-
+                    <div className="w-20 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-4"></div>
                     <p className="text-lg text-gray-100 max-w-2xl mx-auto leading-relaxed">
                         Passion projects and innovative ideas brought to life through code and creativity.
                     </p>

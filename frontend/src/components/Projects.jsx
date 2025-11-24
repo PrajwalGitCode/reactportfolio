@@ -49,11 +49,9 @@ export default function Projects() {
 
     return (
         <section id="projects" className="relative overflow-hidden py-20">
-            {/* Gradient Background */}
             <div className="absolute inset-0 bg-gradient-to-tr from-purple-800 via-pink-700 to-indigo-800 opacity-60 -z-10"></div>
-
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                {/* Section Header */}
+ 
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +76,6 @@ export default function Projects() {
                     </p>
                 </motion.div>
 
-                {/* Company Buttons */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
