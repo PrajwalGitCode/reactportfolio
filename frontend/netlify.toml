@@ -1,7 +1,0 @@
-[build]
-  functions = "netlify/functions"
-  publish = "dist"
-
-[[kv_namespaces]]
-  name = "VISITOR_DB"
-  id = "visitor_database"
