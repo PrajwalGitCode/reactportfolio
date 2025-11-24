@@ -1,32 +1,24 @@
-const fs = require("fs");
-const path = require("path");
+export default async () => {
+  const kv = await import("@netlify/kv");
 
-const filePath = path.join(__dirname, "visitorCount.json");
+  // Get current visitor data
+  let data = await kv.get("uniqueVisitors");
 
-exports.handler = async function (event, context) {
-  let data = { count: 0, visitors: [] };
-
-  // Create JSON file if missing
-  if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, JSON.stringify(data));
-  } else {
-    data = JSON.parse(fs.readFileSync(filePath));
+  if (!data) {
+    data = { count: 0, visitors: [] };
   }
 
-  // Get user IP from Netlify
-  const userIp = event.headers["x-nf-client-connection-ip"];
+  // Get IP from headers
+  const ip = Netlify.env.get("x-nf-client-connection-ip") || "unknown-ip";
 
-  // Count only unique IPs
-  if (userIp && !data.visitors.includes(userIp)) {
-    data.visitors.push(userIp);
-    data.count++;
+  // If new visitor → count
+  if (!data.visitors.includes(ip)) {
+    data.visitors.push(ip);
+    data.count += 1;
+    await kv.set("uniqueVisitors", data);
   }
 
-  // Save updated data
-  fs.writeFileSync(filePath, JSON.stringify(data));
-
-  return {
-    statusCode: 200,
-    body: JSON.stringify({ count: data.count }),
-  };
+  return new Response(JSON.stringify({ count: data.count }), {
+    headers: { "Content-Type": "application/json" },
+  });
 };
