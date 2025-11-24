@@ -50,7 +50,7 @@ export default function Hero() {
             </span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-300">
-           Building <span className="text-indigo-400">Scalable web applications</span>
+           I Build <span className="text-indigo-400">Scalable web applications</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-md leading-relaxed">
             Full-stack MERN developer specializing in building scalable, secure,
