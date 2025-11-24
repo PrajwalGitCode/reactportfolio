@@ -1,12 +1,21 @@
 // src/components/internships.jsx
 import React from "react";
 import "../App.css"
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import AnimatedBackground from "./AnimatedBackground";
+import { FaRegCalendarAlt, FaChevronDown, FaChevronUp } from "react-icons/fa";
 
 export default function Internships() {
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleOpen = (i) => {
+    setOpenIndex((prev) => (prev === i ? null : i));
+  };
   const internships = [
     {
-      internship: "Global Next Consulting India Private Limited · MERN Stack Intern",
+      internship: "Global Next Consulting India Private Limited",
+      role: "MERN Stack Developer Intern",
       duration: "August 2025 – October 2025",
       items: [
         {
@@ -30,7 +39,8 @@ export default function Internships() {
       ],
     },
     {
-      internship: "Navikshaa Technologies · MERN Stack Intern",
+      internship: "Navikshaa Technologies ",
+      role: "MERN Stack Developer Intern",
       duration: "May 2025 – September 2025",
       items: [
         {
@@ -61,7 +71,8 @@ export default function Internships() {
     },
 
     {
-      internship: "MicroDegree · Python Full-Stack Intern",
+      internship: "MicroDegree ",
+      role: "Python Full-Stack Intern",
       duration: "July 2024 – October 2024",
       items: [
         {
@@ -79,7 +90,8 @@ export default function Internships() {
       ],
     },
     {
-      internship: "Debug Deployment Technologies · Web Developer Intern",
+      internship: "Debug Deployment Technologies",
+      role: "Web Development Intern",
       duration: "February 2024 – March 2024",
       items: [
         {
@@ -103,7 +115,8 @@ export default function Internships() {
       ],
     },
     {
-      internship: "UnifyCX · Full Time · Graduate Engineer Trainee",
+      internship: "UnifyCX · Full Time",
+      role: "Graduate Engineer Trainee",
       duration: "November 2023 – January 2024",
       items: [
         {
@@ -128,8 +141,9 @@ export default function Internships() {
       ],
     },
     {
-      internship: "Nayepankh Foundation · Graphic Design Intern",
+      internship: "Nayepankh Foundation",
       duration: "September 2023 – December 2023",
+      role: "Graphic Design Intern",
       items: [
         {
           title: "Graphic Design Intern - Visual Assets",
@@ -148,7 +162,8 @@ export default function Internships() {
       ],
     },
     {
-      internship: "GaoTEK · Internship",
+      internship: "GaoTEK",
+      role: "Internship",
       duration: "September 2023 – December 2023",
       items: [
         {
@@ -166,7 +181,8 @@ export default function Internships() {
       ],
     },
     {
-      internship: "Suven Consultants & Technology Pvt. Ltd. · UI/UX Internship",
+      internship: "Suven Consultants & Technology Pvt. Ltd.",
+      role: "UI/UX Internship",
       duration: "June 2021 – July 2021",
       items: [
         {
@@ -184,7 +200,8 @@ export default function Internships() {
       ],
     },
     {
-      internship: "Internship Studio · Web Development Intern",
+      internship: "Internship Studio",
+      role: "Web Development Intern",
       duration: "Jun 2020 – Jul 2020",
       items: [
         {
@@ -214,7 +231,7 @@ export default function Internships() {
       <AnimatedBackground particleCount={170} />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Section Header */}
+        {/* Header */}
         <div className="text-center mb-20">
           <h2 className="text-4xl md:text-5xl font-bold">
             Work{" "}
@@ -225,8 +242,9 @@ export default function Internships() {
           <div className="w-24 h-1 bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 mx-auto mt-4"></div>
         </div>
 
-        {/* Vertical Timeline Line */}
-        <div className="absolute left-1/2 top-40 bottom-10 w-1 bg-gradient-to-b from-pink-500 via-purple-500 to-indigo-500 rounded-full transform -translate-x-1/2 z-0"></div>
+        {/* Timeline Line */}
+        <div className="absolute left-1/2 top-40 bottom-10 w-1 bg-gradient-to-b 
+        from-pink-500 via-purple-500 to-indigo-500 rounded-full transform -translate-x-1/2 z-0"></div>
 
         {/* Timeline Items */}
         <div className="space-y-20 relative">
@@ -236,53 +254,98 @@ export default function Internships() {
               className={`relative flex items-start ${i % 2 === 0 ? "justify-start" : "justify-end"
                 }`}
             >
-              {/* Animated Connector Dot */}
-              <span className="absolute left-1/2 w-6 h-6 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full border-4 border-gray-950 transform -translate-x-1/2 z-10 shadow-lg shadow-pink-500/30 animate-pulse"></span>
+              {/* Connector Dot */}
+              <span className="absolute left-1/2 w-6 h-6 bg-gradient-to-r 
+              from-pink-500 to-purple-500 rounded-full border-4 border-gray-950 
+              transform -translate-x-1/2 z-10 shadow-lg shadow-pink-500/30 animate-pulse"></span>
 
-              {/* Internship + Projects Card */}
+              {/* Card */}
               <div
-                className={`w-full md:w-5/12 p-6 rounded-2xl bg-gray-900/70 backdrop-blur-md border border-gray-700/50 shadow-xl hover:shadow-pink-500/20 transition-all duration-300 group ${i % 2 === 0 ? "mr-auto text-left" : "ml-auto text-right"
-                  }`}
+                className={`w-full md:w-5/12 p-6 rounded-2xl bg-gray-900/70 backdrop-blur-md 
+                border border-gray-700/50 shadow-xl hover:shadow-pink-500/20 transition-all duration-300
+                ${i % 2 === 0 ? "mr-auto text-left" : "ml-auto text-right"}`}
               >
-                {/* Internship Info */}
-                <div className="mb-6">
-                  <h3 className="text-xl font-semibold text-pink-400 group-hover:text-pink-300 transition-colors">
+                {/* Internship Header */}
+                <div className="mb-4">
+                  <h3 className="text-xl font-semibold text-pink-400">
                     {internship.internship}
+                    <p className="text-sm mt-3 font-semibold text-[#E0E0E0] tracking-wide">
+                      {internship.role}
+                    </p>
                   </h3>
-                  <p className="text-sm text-gray-400 mt-1">
-                    {internship.duration}
-                  </p>
-                </div>
 
-                {/* Projects Inside */}
-                <div className="space-y-6">
-                  {internship.items.map((project, idx) => (
-                    <div
-                      key={idx}
-                      className="p-5 bg-gradient-to-br from-gray-800/70 to-gray-900/70 border border-gray-700 rounded-xl hover:border-pink-400/30 hover:shadow-md hover:shadow-pink-500/10 transition-all duration-300 group/item"
+                  <div className="inline-flex items-center gap-2 text-sm px-3 mt-5 py-1 rounded-full bg-gradient-to-r from-pink-500/20 to-purple-500/20 border border-pink-500/30 text-pink-300">
+                    <FaRegCalendarAlt className="text-pink-300" />
+                    {internship.duration}
+                  </div>
+                </div>
+                {/* Dropdown Toggle Button */}
+                <button
+                  onClick={() => toggleOpen(i)}
+                  className={`mt-2 px-4 py-2 text-sm rounded-lg font-medium transition 
+                  bg-gradient-to-r from-pink-500/20 to-purple-500/20 border border-pink-500/30
+                  hover:bg-pink-500/30 ${i % 2 === 0 ? "text-left" : "text-right"}`}
+                >
+                  {openIndex === i ? (
+                    <>
+                      Hide Details <FaChevronUp className="inline ml-1" />
+                    </>
+                  ) : (
+                    <>
+                      More Details <FaChevronDown className="inline ml-1" />
+                    </>
+                  )}
+
+                </button>
+
+                {/* Dropdown Content */}
+                <AnimatePresence>
+                  {openIndex === i && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
+                      className="overflow-hidden mt-6"
                     >
-                      <h4 className="text-lg font-medium text-white group-hover/item:text-pink-200 transition-colors">
-                        {project.title}
-                      </h4>
-                      <p className="text-sm text-gray-300 mt-2">
-                        {project.description}
-                      </p>
-                      <div
-                        className={`flex flex-wrap gap-2 mt-4 ${i % 2 === 0 ? "justify-start" : "justify-end"
-                          }`}
-                      >
-                        {project.skills.map((skill, sidx) => (
-                          <span
-                            key={sidx}
-                            className="px-3 py-1 text-xs rounded-full bg-gradient-to-r from-pink-500/20 to-purple-500/20 text-pink-300 border border-pink-500/30 hover:bg-pink-500/30 hover:text-white transition-all duration-300 cursor-default"
+                      <div className="space-y-6">
+                        {internship.items.map((project, idx) => (
+                          <div
+                            key={idx}
+                            className="p-5 bg-gradient-to-br from-gray-800/70 to-gray-900/70 
+                            border border-gray-700 rounded-xl hover:border-pink-400/30  
+                            hover:shadow-md hover:shadow-pink-500/10 transition-all duration-300"
                           >
-                            {skill}
-                          </span>
+                            <h4 className="text-lg font-medium text-white">
+                              {project.title}
+                            </h4>
+
+                            <p className="text-sm text-gray-300 mt-2">
+                              {project.description}
+                            </p>
+
+                            <div
+                              className={`flex flex-wrap gap-2 mt-4 ${i % 2 === 0 ? "justify-start" : "justify-end"
+                                }`}
+                            >
+                              {project.skills.map((skill, sidx) => (
+                                <span
+                                  key={sidx}
+                                  className="px-3 py-1 text-xs rounded-full bg-gradient-to-r 
+                                  from-pink-500/20 to-purple-500/20 text-pink-300 
+                                  border border-pink-500/30 hover:bg-pink-500/30 hover:text-white 
+                                  transition-all duration-300"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
                         ))}
                       </div>
-                    </div>
-                  ))}
-                </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             </div>
           ))}

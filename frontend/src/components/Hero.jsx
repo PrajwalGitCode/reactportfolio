@@ -50,11 +50,11 @@ export default function Hero() {
             </span>
           </h1>
           <h2 className="text-2xl md:text-3xl font-semibold text-gray-300">
-            I build <span className="text-indigo-400">digital experiences</span>
+           Building <span className="text-indigo-400">Scalable web applications</span>
           </h2>
           <p className="text-lg text-gray-400 max-w-md leading-relaxed">
-            Full-stack developer specializing in creating performant web
-            applications with modern technologies and intuitive user interfaces.
+            Full-stack MERN developer specializing in building scalable, secure,
+            and high-performance web applications with clean architecture and modern development practices
           </p>
 
           {/* CTA Buttons */}

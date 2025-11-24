@@ -7,17 +7,10 @@ import alumni from "../images/alumni.png";
 import appleclone from "../images/appleclone.png";
 import earbot from "../images/earbot.png";
 import elearn from "../images/elearn.png";
-import feature from "../images/feature.png";
-import feature22 from "../images/feature22.png";
-import food from "../images/food.png";
-import mach from "../images/mach.png";
-import main1 from "../images/main.png";
 import microbank from "../images/microbank.png";
 import microfullstore from "../images/microfullstore.png";
 import portfolio from "../images/portfolio.png";
-import resume from "../images/resume.png";
 import sheet from "../images/sheet.png";
-import techweb from "../images/techweb.png";
 import tender from "../images/tender.png";
 import tutor from "../images/tutor.png";
 import jobportal from "../images/jobportal.png";
@@ -26,6 +19,9 @@ import currency from "../images/currency.png";
 import stock from "../images/stock.png";
 import socialmedia from "../images/socialmedia.png";
 import taskkeep from "../images/taskkeep.png";
+import chatapp from "../images/chatapp.png";
+import travel from "../images/travel.png";
+import ecommerce from "../images/ecommerce.png";
 
 export const companiesData = {
 
@@ -159,8 +155,8 @@ export const companiesData = {
                 title: "E-Commerce Platform",
                 description: "Built a full-stack MERN e-commerce platform supporting product management, cart operations, order placement, and secure authentication, with an intuitive and fully responsive interface.",
                 image: ecommerce,
-                liveLink: "https://naviksha-ecommerce.netlify.app/",
-                githubLink: "https://github.com/PrajwalGitCode/ecomm-app",
+                liveLink: "https://monumental-banoffee-shopping.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/shoppingapp",
                 techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "Tailwind CSS", "JWT Authentication", "Stripe API", "Axios"],
                 achievements: [
                     "Implemented secure checkout flow using Stripe payment integration",
@@ -176,8 +172,8 @@ export const companiesData = {
                 title: "Travel Booking System (Frontend UI)",
                 description: "Developed a fully responsive travel booking UI using React and Tailwind CSS, featuring destination cards, trip filters, booking form UI, and a modern layout focusing on clean design and smooth user experience.",
                 image: travel,
-                liveLink: "https://naviksha-travel-ui.netlify.app/",
-                githubLink: "https://github.com/PrajwalGitCode/travel-ui",
+                liveLink: "https://thunderous-basbousa-fab12e.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/traveldashboard",
                 techStack: ["React.js", "Tailwind CSS", "JavaScript"
                 ],
                 achievements: [
@@ -193,8 +189,8 @@ export const companiesData = {
                 id: 14,
                 title: "TODO List Application",
                 description: "Created a full-stack productivity application for managing daily tasks with features like priority tagging, status updates, deadline reminders, and secure login support.",
-                image: todo,
-                liveLink: "https://naviksha-todo.netlify.app/",
+                image: taskkeep,
+                liveLink: "https://silver-hummingbird-c09f37.netlify.app/",
                 githubLink: "https://github.com/PrajwalGitCode/todo-mern",
                 techStack: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT Authentication", "Tailwind CSS", "Axios"],
                 achievements: [
@@ -218,8 +214,8 @@ export const companiesData = {
                 title: "Banking App",
                 description: "A web app for account creation, deposits, withdrawals, and transaction tracking with user authentication and account management.",
                 image: microbank,
-                liveLink: "https://techcorp-mobile.com",
-                githubLink: "https://github.com/techcorp/mobile",
+                liveLink: "https://nebulabank.pythonanywhere.com/",
+                githubLink: "https://github.com/PrajwalGitCode/microbankingapp",
                 techStack: ["Python", "Django", "HTML", "CSS", "JavaScript", "Bootstrap", "PythonAnywhere"],
                 achievements: ["Implemented secure user authentication and account management",
                     "Designed responsive UI with Bootstrap for cross-device support",
@@ -231,8 +227,8 @@ export const companiesData = {
                 title: "E-Commerce Website",
                 description: "A responsive e-commerce site with product uploads, user authentication, and smooth cross-device browsing.",
                 image: microfullstore,
-                liveLink: "https://techcorp-api.com",
-                githubLink: "https://github.com/techcorp/api",
+                liveLink: "https://thenebula.pythonanywhere.com/",
+                githubLink: "https://github.com/PrajwalGitCode/microstoreapp",
                 techStack: ["Python", "Django", "HTML", "CSS", "JavaScript", "Bootstrap", "PythonAnywhere"],
                 achievements: ["Developed product upload and management features",
                     "Implemented secure authentication and user sessions",
@@ -243,8 +239,8 @@ export const companiesData = {
                 title: "Watch App Store",
                 description: "A responsive watch e-commerce store showcasing products with a clean Bootstrap-based design.",
                 image: microfullstore,
-                liveLink: "https://techcorp-api.com",
-                githubLink: "https://github.com/techcorp/api",
+                liveLink: "https://delicate-kitsune-ed57db.netlify.app/",
+                githubLink: "https://github.com/PrajwalGitCode/watchshop",
                 techStack: [["HTML", "CSS", "Bootstrap"]],
                 achievements: ["Created a modern responsive layout for product listings",
                     "Designed sleek UI components using Bootstrap",

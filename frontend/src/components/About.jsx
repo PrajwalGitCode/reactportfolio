@@ -64,18 +64,15 @@ export default function About() {
               </h3>
 
               <p className="text-lg text-gray-300 leading-relaxed mb-6">
-                I am passionate about crafting engaging and visually appealing
-                websites. With expertise in front-end technologies such as HTML,
-                CSS, and JavaScript, I excel in designing responsive and
-                user-centric interfaces.
+                I am passionate about building scalable and user-focused web applications. With expertise in frontend and MERN-stack technologies
+                such as React, Node.js, Express.js, and MongoDB,
+                I excel in designing responsive, intuitive, and visually appealing interfaces.
               </p>
 
               <p className="text-lg text-gray-300 leading-relaxed">
-                My dedication to learning and attention to detail enable me to
-                create digital experiences that delight and captivate users. I am
-                eager to apply my skills and creativity to exciting projects and
-                collaborate with others to transform innovative ideas into
-                reality.
+                My attention to detail and commitment to best practices enable me to create reliable and engaging digital experiences.
+                I am eager to apply my skills in challenging projects
+                and collaborate with teams to turn innovative ideas into professional-grade solutions.
               </p>
             </div>
 

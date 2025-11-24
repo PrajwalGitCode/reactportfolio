@@ -1,12 +1,18 @@
 // src/components/Certifications.jsx
-import React from "react";
+import React, { useState } from "react";
 import "../App.css"
 import AnimatedBackground from "./AnimatedBackground";
-import { FaExternalLinkAlt, FaDownload, FaCalendarAlt, FaAward } from "react-icons/fa";
+import { FaExternalLinkAlt, FaDownload, FaCalendarAlt, FaAward, FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { SiCoursera, SiUdemy, SiFreecodecamp, SiGoogle } from "react-icons/si";
 import { motion } from "framer-motion";
 
 export default function Certifications() {
+  const [expandedCert, setExpandedCert] = useState(null);
+
+  const toggleCert = (id) => {
+    setExpandedCert(expandedCert === id ? null : id);
+  };
+
   const certificationsData = [
     {
       id: 1,
@@ -233,72 +239,103 @@ export default function Certifications() {
           </p>
         </motion.div>
 
-        {/* Certifications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {/* Certifications List */}
+        <div className="space-y-4">
           {certificationsData.map((cert, index) => (
             <motion.div
               key={cert.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 border border-gray-200/50 dark:border-gray-700/50 shadow-lg hover:shadow-xl transition-all duration-300 group"
+              initial={false}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.2 }}
+              className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg overflow-hidden hover:shadow-xl hover:scale-[1.01] transition-all duration-300"
             >
-              {/* Header */}
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center space-x-3">
-                  <div className="p-3 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-lg">
+
+              {/* Dropdown Header - Always Visible */}
+              <button
+                onClick={() => toggleCert(cert.id)}
+                className="w-full px-6 py-4 flex items-center justify-between text-left hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors duration-200"
+              >
+                <div className="flex items-center space-x-4">
+                  <div className="p-2 bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 rounded-lg">
                     {cert.issuerIcon}
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                    <h3 className="font-semibold text-gray-900 dark:text-white">
                       {cert.title}
                     </h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      {cert.issuer}
-                    </p>
+                    <div className="flex items-center space-x-4 mt-1">
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        {cert.issuer}
+                      </p>
+                      <span className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+                        <FaCalendarAlt className="mr-1" />
+                        {cert.date}
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="flex items-center text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700/50 px-2 py-1 rounded-full">
-                  <FaCalendarAlt className="mr-1" />
-                  {cert.date}
+                <div className="flex items-center space-x-3">
+                  <span className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
+                    {cert.skills.length} skills
+                  </span>
+                  {expandedCert === cert.id ? (
+                    <FaChevronUp className="text-gray-400 transition-transform duration-200" />
+                  ) : (
+                    <FaChevronDown className="text-gray-400 transition-transform duration-200" />
+                  )}
                 </div>
-              </div>
+              </button>
 
-              {/* Skills */}
-              <div className="mb-4">
-                <div className="flex flex-wrap gap-2">
-                  {cert.skills.map((skill, idx) => (
-                    <span
-                      key={idx}
-                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              {/* Dropdown Content - Only shown when expanded */}
+              {expandedCert === cert.id && (
+                <motion.div
+                  initial={{ opacity: 0, height: 0 }}
+                  animate={{ opacity: 1, height: "auto" }}
+                  exit={{ opacity: 0, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="px-6 pb-4"
+                >
+                  <div className="border-t border-gray-200/50 dark:border-gray-700/50 pt-4">
+                    {/* Skills */}
+                    <div className="mb-4">
+                      <h4 className="font-medium text-gray-900 dark:text-white mb-2 text-sm">
+                        Skills Covered:
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {cert.skills.map((skill, idx) => (
+                          <span
+                            key={idx}
+                            className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-full"
+                          >
+                            {skill}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
 
-              {/* Action Buttons */}
-              <div className="flex space-x-3 pt-4 border-t border-gray-200/50 dark:border-gray-700/50">
-                <a
-                  href={cert.credentialLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 flex-1 justify-center text-sm"
-                >
-                  <FaExternalLinkAlt className="mr-2" />
-                  Verify
-                </a>
-                <a
-                  href={cert.downloadLink}
-                  download
-                  className="flex items-center px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 flex-1 justify-center text-sm"
-                >
-                  <FaDownload className="mr-2" />
-                  PDF
-                </a>
-              </div>
+                    {/* Action Buttons */}
+                    <div className="flex space-x-3">
+                      <a
+                        href={cert.credentialLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-300 flex-1 justify-center text-sm"
+                      >
+                        <FaExternalLinkAlt className="mr-2" />
+                        Verify Certificate
+                      </a>
+                      <a
+                        href={cert.downloadLink}
+                        download
+                        className="flex items-center px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors duration-300 flex-1 justify-center text-sm"
+                      >
+                        <FaDownload className="mr-2" />
+                        Download PDF
+                      </a>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </motion.div>
           ))}
         </div>
@@ -311,37 +348,8 @@ export default function Certifications() {
           viewport={{ once: true }}
           className="text-center mt-12"
         >
-          <div className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl p-6 border border-gray-200/50 dark:border-gray-700/50">
-            <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-              Continuous Learning Journey
-            </h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-4">
-              I'm constantly expanding my skills through courses and certifications
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="flex items-center px-3 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 rounded-full text-sm">
-                <SiCoursera className="mr-1" /> Coursera
-              </span>
-              <span className="flex items-center px-3 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full text-sm">
-                <SiUdemy className="mr-1" /> Udemy
-              </span>
-              <span className="flex items-center px-3 py-1 bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300 rounded-full text-sm">
-                <SiFreecodecamp className="mr-1" /> freeCodeCamp
-              </span>
-            </div>
-          </div>
         </motion.div>
       </div>
     </section>
   );
 }
-
-// AWS Icon
-const SiAmazonaws = ({ className }) => (
-  <svg className={className} viewBox="0 0 24 24" width="24" height="24">
-    <path
-      fill="currentColor"
-      d="M12 .3c-6.6 0-12 5.3-12 12 0 5.3 3.4 9.8 8.1 11.4.6.1.8-.2.8-.5v-2c-3.3.7-4-1.5-4-1.5-.6-1.6-1.5-2-1.5-2-1.2-.8.1-.8.1-.8 1.3.1 2 .9 2 .9 1.1 2 2.9 1.4 3.5 1 .1-.8.4-1.4.8-1.7-2.7-.3-5.6-1.4-5.6-6.1 0-1.4.5-2.5 1.3-3.4-.1-.3-.6-1.6.1-3.3 0 0 1-.3 3.4 1.3 1-.3 2-.5 3-.5 1 0 2 .2 3 .5 2.4-1.6 3.4-1.3 3.4-1.3.7 1.7.3 3 .1 3.3.8.9 1.3 2 1.3 3.4 0 4.7-2.9 5.7-5.6 6 .4.3.8 1 .8 2v3c0 .3.2.6.8.5 4.7-1.6 8.1-6.1 8.1-11.4 0-6.7-5.4-12-12-12z"
-    />
-  </svg>
-);

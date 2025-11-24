@@ -1,10 +1,45 @@
 // src/components/Footer.jsx
 import React from "react";
-import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaHeart, FaCode } from "react-icons/fa";
+import {
+    FaLinkedin,
+    FaGithub,
+    FaTwitter,
+    FaEnvelope,
+    FaHeart,
+    FaUsers,
+    FaDownload
+} from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
-import "../App.css"
+import "../App.css";
+
 export default function Footer() {
     const currentYear = new Date().getFullYear();
+    const [visitorCount, setVisitorCount] = React.useState(null);
+
+    // ---- UNIQUE VISITOR COUNTER ----
+    React.useEffect(() => {
+        const hasVisited = localStorage.getItem("prajwal_visited");
+
+        const URL = "https://api.countapi.xyz";
+        const namespace = "prajwal_portfolio";
+        const key = "unique_visitors";
+
+        async function fetchCount() {
+            const res = await fetch(`${URL}/get/${namespace}/${key}`);
+            const data = await res.json();
+            setVisitorCount(data.value);
+        }
+
+        async function incrementCount() {
+            const res = await fetch(`${URL}/hit/${namespace}/${key}`);
+            const data = await res.json();
+            setVisitorCount(data.value);
+            localStorage.setItem("prajwal_visited", "true");
+        }
+
+        if (!hasVisited) incrementCount();
+        else fetchCount();
+    }, []);
 
     return (
         <footer className="bg-gray-900 text-white border-t border-gray-700/50 relative overflow-hidden">
@@ -20,6 +55,8 @@ export default function Footer() {
                             Full-stack developer passionate about creating innovative web solutions
                             and delivering exceptional user experiences through modern technologies.
                         </p>
+
+                        {/* SOCIAL ICONS */}
                         <div className="flex space-x-4">
                             {[
                                 { icon: <FaLinkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/yourprofile", label: "LinkedIn", color: "hover:bg-indigo-600" },
@@ -58,7 +95,7 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Contact Info */}
+                    {/* CONTACT INFO */}
                     <div>
                         <h3 className="text-lg font-semibold mb-4 text-white">Get in Touch</h3>
                         <div className="space-y-4">
@@ -66,6 +103,7 @@ export default function Footer() {
                                 <FaEnvelope className="w-4 h-4 mr-3 text-indigo-400 flex-shrink-0" />
                                 <span className="truncate">your.email@example.com</span>
                             </div>
+
                             <div className="flex items-center text-gray-300">
                                 <div className="w-4 h-4 mr-3 bg-indigo-400 rounded-full flex items-center justify-center flex-shrink-0">
                                     <svg className="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -74,6 +112,7 @@ export default function Footer() {
                                 </div>
                                 <span>Bangalore, India</span>
                             </div>
+
                             <a
                                 href="/resume.pdf"
                                 download
@@ -91,12 +130,15 @@ export default function Footer() {
 
                 {/* Bottom Section */}
                 <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+
+                    {/* COPYRIGHT */}
                     <div className="flex items-center text-gray-300 text-sm">
                         <span>© {currentYear} Made with</span>
                         <FaHeart className="w-4 h-4 mx-2 text-red-500 animate-pulse" />
                         <span>by Prajwal T</span>
                     </div>
 
+                    {/* PRIVACY + TERMS */}
                     <div className="flex items-center space-x-6 text-sm text-gray-300">
                         <a href="#privacy" className="hover:text-indigo-400 transition-colors duration-300">
                             Privacy Policy
@@ -106,22 +148,15 @@ export default function Footer() {
                         </a>
                     </div>
 
+                    {/* UNIQUE VISITOR COUNTER */}
                     <div className="flex items-center text-gray-300 text-sm">
-                        <span className="mr-2">Built with</span>
-                        <SiReact className="w-4 h-4 text-cyan-400 mx-1" />
-                        <span className="mx-1">+</span>
-                        <SiTailwindcss className="w-4 h-4 text-sky-400 mx-1" />
-                        <span className="ml-2">= 💖</span>
+                        <FaUsers className="w-4 h-4 mr-2 text-indigo-400" />
+                        <span>
+                            Unique Visitors: {visitorCount !== null ? visitorCount : "..."}
+                        </span>
                     </div>
                 </div>
             </div>
         </footer>
     );
 }
-
-// Download icon component
-const FaDownload = ({ className }) => (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-    </svg>
-);
