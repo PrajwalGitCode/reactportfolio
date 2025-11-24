@@ -1,6 +1,6 @@
 // src/components/Footer.jsx
 import React, { useState, useEffect } from "react";
-import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaHeart, FaCode, FaDownload } from "react-icons/fa";
+import { FaLinkedin, FaGithub, FaTwitter, FaEnvelope, FaHeart, FaCode } from "react-icons/fa";
 import { SiReact, SiTailwindcss } from "react-icons/si";
 import "../App.css"
 
@@ -9,28 +9,26 @@ export default function Footer() {
     const [visitCount, setVisitCount] = useState(0);
 
     useEffect(() => {
-        const updateVisitorCount = () => {
-            // Check if this is the site owner (you)
-            const isOwner = window.location.hostname === 'prajwalportfoliosite.netlify.app' && 
-                           (navigator.userAgent.includes('Chrome') || 
-                            navigator.userAgent.includes('Firefox') ||
-                            navigator.userAgent.includes('Safari'));
-
-            if (!isOwner) {
-                // Only count real visitors
-                const count = localStorage.getItem('visitCount');
-                const newCount = count ? parseInt(count) + 1 : 1;
+        const countVisitor = () => {
+            // Simple approach: Check if this is the first visit in this session
+            const hasVisitedThisSession = sessionStorage.getItem('hasVisited');
+            
+            if (!hasVisitedThisSession) {
+                // This is a new session, count the visit
+                const currentCount = localStorage.getItem('visitCount');
+                const newCount = currentCount ? parseInt(currentCount) + 1 : 1;
+                
                 localStorage.setItem('visitCount', newCount.toString());
+                sessionStorage.setItem('hasVisited', 'true');
                 setVisitCount(newCount);
             } else {
-                // Show current count without incrementing for owner
-                const count = localStorage.getItem('visitCount');
-                setVisitCount(count ? parseInt(count) : 0);
+                // Already visited in this session, just show the count
+                const currentCount = localStorage.getItem('visitCount');
+                setVisitCount(currentCount ? parseInt(currentCount) : 0);
             }
         };
 
-        // Add a small delay to ensure everything is loaded
-        setTimeout(updateVisitorCount, 1000);
+        countVisitor();
     }, []);
 
     return (
@@ -148,3 +146,10 @@ export default function Footer() {
         </footer>
     );
 }
+
+// Download icon component
+const FaDownload = ({ className }) => (
+    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+    </svg>
+);
