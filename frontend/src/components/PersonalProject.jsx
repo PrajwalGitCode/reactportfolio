@@ -8,6 +8,7 @@ import passgen from "../images/passgen.png";
 import ministore from "../images/ministore.png";
 import authpro from "../images/authpro.png";
 import agent from "../images/agent.png";
+import feature from "../images/feature.png";
 
 export default function PersonalProjects() {
     const [activeId, setActiveId] = useState(1);
