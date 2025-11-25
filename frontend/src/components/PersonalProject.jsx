@@ -13,7 +13,17 @@ export default function PersonalProjects() {
     const [activeId, setActiveId] = useState(1);
     const personalProjects = [
         {
-            id: 1,
+            id: 5,
+            title: "Music Website",
+            shortDesc: "Interactive music streaming and merchandising platform.",
+            description: "A dynamic music portal enabling users to upload tracks, stream audio, search the library, and purchase artist merchandise. Built with a robust relational database for managing media and user data.",
+            image: feature,
+            liveLink: "https://thealienmusic.infinityfreeapp.com/login.php",
+            githubLink: "https://github.com/PrajwalGitCode/musicwebsite",
+            techStack: ["PHP", "MySQL", "Bootstrap", "HTML", "CSS", "XAMPP"],
+        },
+        {
+            id: 4,
             title: "Agent Manager",
             shortDesc: "Task management system with admin login and agent creation features.",
             description: "Role-based admin dashboard where the admin (email: admin@something.com, password: something@123) can create agents, assign tasks, and manage their login credentials.",
@@ -23,7 +33,7 @@ export default function PersonalProjects() {
             techStack: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
         },
         {
-            id: 2,
+            id: 3,
             title: "Ministore",
             shortDesc: "Mini e-commerce app",
             description: "A simple MERN-based online store with user login/signup, product upload, product browsing, cart management, and a smooth checkout flow.",
@@ -33,7 +43,7 @@ export default function PersonalProjects() {
             techStack: ["MongoDB", "Express.js", "React", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
         },
         {
-            id: 3,
+            id: 2,
             title: "Password Generator",
             shortDesc: "Secure password generator and manager",
             description: "A simple password management system where users can log in, generate strong passwords, save them, view saved entries, and delete them securely.",
@@ -43,7 +53,7 @@ export default function PersonalProjects() {
             techStack: ["MongoDB", "Express.js", "Next.js", "React", "Node.js", "Tailwind CSS", "JWT Authentication", "Socket.IO", "Axios"],
         },
         {
-            id: 4,
+            id: 1,
             title: "Authentication UI",
             shortDesc: "Simple React authentication interface",
             description: "Frontend-only React + Tailwind UI featuring login, signup, and a basic user profile screen.",
